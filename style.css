@@ -3079,3 +3079,90 @@ main > section.section,
     padding-top: clamp(9px, 2.8vw, 12px);
   }
 }
+
+/* MOBILE nav correction: restore the header bar; only the opened hamburger menu is fluid. */
+@media (max-width: 760px) {
+  :root {
+    --header-h: 65px;
+  }
+
+  .header .navbar {
+    min-height: 64px;
+    height: auto;
+    padding: 0 18px 0 28px;
+    gap: 2px;
+  }
+
+  .header .brand {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+    min-width: initial;
+  }
+
+  .header .header-tools {
+    gap: 0;
+  }
+
+  .header .nav-book {
+    width: 44px;
+    height: auto;
+  }
+
+  .header .nav-book .icon {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+  }
+
+  .header .menu-toggle {
+    width: auto;
+    height: auto;
+    padding: initial;
+  }
+
+  .header .menu-toggle .icon {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+
+  /* Only the expanded hamburger panel adapts to the viewport. */
+  .header .main-nav {
+    top: calc(100% + 8px);
+    left: clamp(8px, 3vw, 12px);
+    right: clamp(8px, 3vw, 12px);
+    width: auto;
+    max-width: none;
+    max-height: calc(100dvh - 82px);
+    padding: clamp(8px, 2.5vw, 12px);
+    border-radius: clamp(16px, 4vw, 20px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .header .main-nav > a {
+    padding: clamp(11px, 3.4vw, 14px) clamp(12px, 4vw, 16px);
+    font-size: clamp(14px, 4.1vw, 16px);
+  }
+
+  .header .mobile-nav-actions {
+    gap: clamp(6px, 2vw, 8px);
+    margin-top: clamp(4px, 1.6vw, 6px);
+    padding: clamp(9px, 2.8vw, 12px) 4px 4px;
+  }
+
+  .header .mobile-nav-actions .action {
+    min-height: clamp(40px, 11vw, 44px);
+    padding: clamp(9px, 2.8vw, 10px) 12px;
+    font-size: clamp(12px, 3.6vw, 13px);
+  }
+}
+
+@media (max-width: 360px) {
+  .header .navbar {
+    padding: 0 16px 0 24px;
+  }
+  .header .brand {
+    font-size: 22px;
+  }
+}
