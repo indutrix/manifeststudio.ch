@@ -2028,3 +2028,114 @@ main > section.section,
   .footer .footer-fx .fx:nth-child(4) { left: 78%; top: 78%; }
   .footer .footer-fx .fx:nth-child(n+5) { display: none; }
 }
+
+/* Global decorative field below the hero. No per-section FX framing. */
+.site-shell {
+  position: relative;
+  isolation: isolate;
+}
+.site-shell > .section {
+  isolation: auto !important;
+}
+.site-shell > .site-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.site-shell > .section > *:not(.about-photo-fx) {
+  position: relative;
+  z-index: 3;
+}
+.site-shell > .site-fx .fx img,
+.price-page > .site-fx .fx img {
+  --o: .52;
+}
+
+/* Only the portrait gets foreground decorations. */
+.about .owner-photo {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  z-index: 3;
+}
+.about .owner-copy {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  z-index: 5;
+}
+.about-photo-fx {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 4;
+  min-width: 0;
+  min-height: 100%;
+  pointer-events: none;
+}
+.about-photo-fx .photo-fx {
+  position: absolute;
+  left: var(--ax);
+  top: var(--ay);
+  width: var(--aw);
+  transform: rotate(var(--ar));
+}
+.about-photo-fx img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: .72;
+}
+
+/* Services subpage: one decoration field for the whole page section. */
+.price-page {
+  isolation: isolate;
+}
+.price-page > .site-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.price-page > *:not(.site-fx) {
+  position: relative;
+  z-index: 3;
+}
+
+/* Remove the old section-specific decoration layers if stale markup is cached. */
+.site-shell .contact-fx,
+.site-shell .footer-fx,
+.site-shell .fx-under,
+.site-shell .fx-photo-over {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .about .owner-photo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .about-photo-fx {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .about .owner-copy {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .site-shell > .site-fx .fx,
+  .price-page > .site-fx .fx {
+    width: calc(var(--mw, 30) * .9px);
+  }
+  .site-shell > .site-fx .fx img,
+  .price-page > .site-fx .fx img {
+    --o: .42;
+  }
+  .about-photo-fx .photo-fx {
+    width: calc(var(--aw) * .88);
+  }
+}
