@@ -2406,3 +2406,62 @@ main > section.section,
     --o: .92;
   }
 }
+
+/* Stabilize desktop hero copy across viewport sizes: fixed safe zone, no vw/vh translation. */
+@media (min-width: 761px) {
+  .hero-copy {
+    position: absolute;
+    top: clamp(105px, 14vh, 155px);
+    right: clamp(54px, 7vw, 138px);
+    width: clamp(420px, 36vw, 640px);
+    max-width: 640px;
+    padding: 0;
+    margin: 0;
+    transform: none !important;
+    justify-self: auto;
+    align-self: auto;
+  }
+}
+@media (min-width: 761px) and (max-width: 1180px) {
+  .hero-copy {
+    top: clamp(95px, 12vh, 125px);
+    right: clamp(34px, 4vw, 58px);
+    width: min(45vw, 500px);
+  }
+  .hero-copy h1 {
+    font-size: clamp(40px, 5.2vw, 62px);
+  }
+  .hero-copy .hero-description {
+    font-size: 14px;
+    max-width: 440px;
+  }
+}
+
+/* Footer gets its own FX field; decorations stay behind every footer text/control. */
+.footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.footer-global-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.footer-global-fx .fx img {
+  --o: .92;
+}
+.footer > *:not(.footer-global-fx) {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .footer-global-fx .fx {
+    width: calc(var(--mw, 58) * .9px);
+  }
+  .footer-global-fx .fx img {
+    --o: .86;
+  }
+}
