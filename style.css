@@ -2183,3 +2183,49 @@ main > section.section,
     background: rgba(104, 39, 72, .24);
   }
 }
+
+/* Hero readability without darkening the artwork. */
+.hero-photo::after {
+  background: none !important;
+}
+.hero-copy {
+  background: none !important;
+  text-shadow: none;
+}
+.hero-copy::before {
+  display: none !important;
+}
+.hero-copy .eyebrow,
+.hero-copy h1,
+.hero-copy h1 em,
+.hero-copy .hero-description,
+.hero-copy .location-tag {
+  color: #7b2f52;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.55),
+    0 2px 10px rgba(255,255,255,.34);
+}
+.hero-copy h1 {
+  color: #6d2748;
+}
+.hero-copy h1 em {
+  color: #9f466d;
+}
+.hero-copy .hero-description {
+  color: #73304f;
+}
+.hero-copy .location-tag {
+  color: #8d3c61;
+}
+.hero .action {
+  color: #7b2f52;
+  border-color: rgba(123,47,82,.45);
+  background: rgba(255,248,251,.58);
+  text-shadow: none;
+}
+.hero .action .icon {
+  color: #7b2f52;
+}
+.hero .action:hover {
+  background: rgba(255,248,251,.78);
+}
