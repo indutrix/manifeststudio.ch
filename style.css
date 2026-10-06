@@ -490,14 +490,14 @@ p {
 }
 .review-grid {
   display: block;
-  columns: 2;
-  column-gap: 24px;
+  columns: 3;
+  column-gap: 20px;
 }
 .review-grid a {
   display: block;
   break-inside: avoid;
-  margin-bottom: 24px;
-  padding: 16px;
+  margin-bottom: 20px;
+  padding: 12px;
   background: white;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -721,6 +721,12 @@ p {
   .review-grid {
     columns: 1;
   }
+  .review-grid a {
+    max-width: 270px;
+    margin-inline: auto;
+    margin-bottom: 18px;
+    padding: 10px;
+  }
   .integration-placeholder iframe {
     height: 550px;
   }
@@ -927,15 +933,31 @@ body:has(.gallery-dialog[open]) {
   content: '';
   pointer-events: none;
   background:
-    linear-gradient(90deg, transparent 20%, rgba(36, 20, 29, 0.12) 48%, rgba(30, 17, 24, 0.78) 100%),
-    linear-gradient(180deg, rgba(24, 12, 18, 0.5), transparent 26%, transparent 70%, rgba(30, 17, 24, 0.26));
+    linear-gradient(90deg, transparent 24%, rgba(36, 20, 29, 0.08) 50%, rgba(30, 17, 24, 0.6) 100%),
+    linear-gradient(180deg, rgba(24, 12, 18, 0.4), transparent 26%, transparent 70%, rgba(30, 17, 24, 0.16));
 }
 .hero .photo-stamp {
   z-index: 4;
   right: auto;
   bottom: 25px;
   left: 26px;
+  padding: 16px 30px 13px;
+  border: 1px solid var(--rose-line);
   border-radius: 30px;
+  background: rgba(46, 26, 36, 0.5);
+  color: var(--rose-text);
+  text-shadow: 0 1px 14px rgba(24, 12, 18, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.hero .photo-stamp::after {
+  position: absolute;
+  top: -9px;
+  right: 22px;
+  width: 18px;
+  height: 20px;
+  background: url('images/fx/fx-01.png') center / contain no-repeat;
+  content: '';
 }
 .hero-copy {
   position: relative;
@@ -954,7 +976,7 @@ body:has(.gallery-dialog[open]) {
 }
 .hero-copy .eyebrow {
   margin-bottom: clamp(18px, 3vh, 40px);
-  color: #f3cbdc;
+  color: var(--rose-text);
 }
 .hero-copy h1 {
   margin: 0;
@@ -968,7 +990,7 @@ body:has(.gallery-dialog[open]) {
 .hero-copy h1 em {
   display: block;
   margin-top: clamp(14px, 2.5vh, 30px);
-  color: #f2bcd3;
+  color: var(--rose-text);
   font-size: 0.68em;
   font-style: italic;
   font-weight: 400;
@@ -986,7 +1008,7 @@ body:has(.gallery-dialog[open]) {
 }
 .hero-copy .location-tag {
   margin: 14px 0 0;
-  color: #f3cbdc;
+  color: var(--rose-text);
 }
 .hero .action {
   margin-top: clamp(16px, 3vh, 34px);
@@ -1000,7 +1022,7 @@ body:has(.gallery-dialog[open]) {
   background: rgba(255, 255, 255, 0.2);
 }
 .hero-copy .location-tag .icon {
-  color: #f3cbdc;
+  color: var(--rose-text);
 }
 .hero .action .icon {
   color: #fffafc;
@@ -1105,23 +1127,32 @@ body:has(.gallery-dialog[open]) {
     border-radius: 0 0 18px 18px;
   }
   .hero-photo::after {
-    background: linear-gradient(180deg, rgba(24, 12, 18, 0.5), transparent 24%);
+    background: linear-gradient(180deg, rgba(24, 12, 18, 0.4), transparent 24%);
   }
   .hero .photo-stamp {
     z-index: 4;
     top: auto;
     bottom: 14px;
     left: 14px;
-    padding: 9px 17px 7px;
+    padding: 9px 18px 7px;
     border-radius: 18px;
     font-size: 20px;
+  }
+  .hero .photo-stamp::after {
+    top: -8px;
+    right: 14px;
+    width: 15px;
+    height: 17px;
+  }
+  .hero-photo > img {
+    object-position: 12% 0%;
   }
   .hero-copy {
     width: 100%;
     justify-self: stretch;
     justify-content: flex-end;
     padding: 20px 25px 76px;
-    background: linear-gradient(180deg, transparent 22%, rgba(29, 16, 23, 0.45) 52%, rgba(29, 16, 23, 0.82) 100%);
+    background: linear-gradient(180deg, transparent 24%, rgba(29, 16, 23, 0.34) 54%, rgba(29, 16, 23, 0.64) 100%);
   }
   .hero-copy .eyebrow {
     margin-bottom: 12px;
@@ -1173,6 +1204,8 @@ body:has(.gallery-dialog[open]) {
 /* Navigation: minimal. Transparent over the hero photo, frosted once you scroll past it. */
 :root {
   --header-h: 77px;
+  --rose-text: #e6b3b7;
+  --rose-line: rgba(219, 165, 169, 0.8);
 }
 .brand {
   font-family: Georgia, serif;
@@ -1530,7 +1563,8 @@ body:has(.gallery-dialog[open]) {
 }
 
 /* Decorative effects (from images/fx). */
-main > section.section {
+main > section.section,
+.footer {
   position: relative;
   isolation: isolate;
 }
@@ -1602,8 +1636,9 @@ main > section.section {
   bottom: 24px;
   z-index: 9;
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
@@ -1670,11 +1705,12 @@ main > section.section {
 }
 
 @media (max-width: 760px) {
-  .fx {
+  .hero-fx .fx {
     left: var(--mx, var(--x));
     top: var(--my, var(--y));
     width: calc(var(--w) * 0.58px);
   }
+  
   .fx.d-only {
     display: none;
   }
@@ -1709,5 +1745,99 @@ main > section.section {
     transform: rotate(var(--r));
     transition: none;
     animation: none !important;
+  }
+}
+
+@media (max-width: 1360px) {
+  .fx.edge {
+    display: none;
+  }
+}
+@media (max-width: 1100px) {
+  .fx-layer:not(.hero-fx) .fx {
+    left: var(--mx, var(--x));
+    top: 6px;
+    bottom: auto;
+    width: calc(var(--mw, 36) * 1px);
+    transform: none;
+  }
+  .fx-layer:not(.hero-fx) .fx[data-m='b'] {
+    top: auto;
+    bottom: 6px;
+  }
+  .fx-layer:not(.hero-fx) .fx.d-only {
+    display: none;
+  }
+}
+
+.scroll-tools-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.call-cta {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--pink-dark);
+  color: #fffafc;
+  box-shadow: 0 10px 30px rgba(135, 80, 106, 0.4);
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+.call-cta:hover,
+.call-cta:focus-visible {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 14px 34px rgba(135, 80, 106, 0.5);
+}
+.call-cta svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (max-width: 760px) {
+  .call-cta {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Soft, local darkening only behind the hero text, so the photo itself stays bright. */
+.hero-copy::before {
+  position: absolute;
+  inset: -3% -8% -5% -6%;
+  z-index: -1;
+  border-radius: 60px;
+  background: rgba(30, 17, 24, 0.5);
+  filter: blur(44px);
+  content: '';
+  pointer-events: none;
+}
+.hero-copy .eyebrow,
+.hero-copy h1 em,
+.hero-copy .location-tag {
+  text-shadow:
+    0 1px 3px rgba(24, 12, 18, 0.45),
+    0 2px 20px rgba(24, 12, 18, 0.5);
+}
+.hero-copy {
+  clip-path: inset(0 0 0 -400px);
+}
+@media (max-width: 760px) {
+  .hero-copy::before {
+    inset: 36% -6% 4% -6%;
+    background: rgba(30, 17, 24, 0.4);
+    filter: blur(34px);
+    border-radius: 40px;
+  }
+  .hero-copy {
+    clip-path: inset(0 round 0 0 18px 18px);
   }
 }

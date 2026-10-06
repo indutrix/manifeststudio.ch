@@ -302,8 +302,9 @@ function updateScrollTools() {
   progressFill.style.transform = `scaleY(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
   scrollTools.classList.toggle('is-visible', window.scrollY > 120);
 }
+const phoneLayout = window.matchMedia('(max-width: 1100px)');
 function driftEffects() {
-  if (motionReduced.matches) return;
+  if (motionReduced.matches || phoneLayout.matches) return;
   fxGroups.forEach(({ layer, items }) => {
     const box = layer.getBoundingClientRect();
     if (box.bottom < -300 || box.top > window.innerHeight + 300) return;
@@ -342,7 +343,20 @@ if ('IntersectionObserver' in window && !motionReduced.matches) {
     },
     { rootMargin: '0px 0px -8% 0px' },
   );
-  fxElements.forEach((element) => fxObserver.observe(element));
+  // The footer sits at the very end of the page, so it needs no bottom margin.
+  const footerObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        footerObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px' },
+  );
+  fxElements.forEach((element) =>
+    (element.closest('.footer-fx') ? footerObserver : fxObserver).observe(element),
+  );
 } else {
   fxElements.forEach((element) => element.classList.add('is-in'));
 }
