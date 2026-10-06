@@ -2386,3 +2386,23 @@ main > section.section,
     width: 60%;
   }
 }
+
+/* Large, vivid global FX – closer to hero scale and fully visible. */
+.site-fx .fx.fx-large {
+  width: min(calc(var(--w) * 1px), calc(var(--w) * 0.075vw), calc(var(--w) * 0.115vh));
+}
+.site-fx .fx.fx-large img,
+.price-page > .site-fx .fx.fx-large img {
+  --o: .94;
+  filter: none;
+}
+@media (max-width: 760px) {
+  .site-fx .fx.fx-large,
+  .price-page > .site-fx .fx.fx-large {
+    width: calc(var(--mw, 64) * 1px);
+  }
+  .site-fx .fx.fx-large img,
+  .price-page > .site-fx .fx.fx-large img {
+    --o: .92;
+  }
+}
