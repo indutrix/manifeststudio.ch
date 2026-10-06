@@ -2704,3 +2704,52 @@ main > section.section,
     font-size: 10px;
   }
 }
+
+/* Hero booking CTA: match the soft mauve pill treatment from the reference. */
+.hero .action {
+  min-width: clamp(190px, 15vw, 250px);
+  min-height: clamp(54px, 5.2vw, 70px);
+  padding: 0 clamp(26px, 2.2vw, 38px);
+  border: 0;
+  border-radius: 999px;
+  background: rgba(116, 91, 103, .86);
+  color: #f4b8ca;
+  box-shadow:
+    0 10px 28px rgba(103, 72, 88, .14),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-weight: 600;
+  text-shadow: none;
+}
+
+.hero .action .icon {
+  color: #f4b8ca;
+}
+
+.hero .action:hover,
+.hero .action:focus-visible {
+  background: rgba(105, 79, 92, .94);
+  color: #ffd0dc;
+  box-shadow:
+    0 12px 30px rgba(103, 72, 88, .20),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  .hero .action {
+    min-width: 160px;
+    min-height: 48px;
+    padding: 0 20px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero .action {
+    min-width: 180px;
+    min-height: 52px;
+    padding: 0 24px;
+    font-size: 13px;
+  }
+}
