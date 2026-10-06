@@ -2229,3 +2229,44 @@ main > section.section,
 .hero .action:hover {
   background: rgba(255,248,251,.78);
 }
+
+/* Hero without overlay: keep controls readable and remove the visible frame around the image. */
+.header-overlay:not(.is-solid):not(.menu-open) {
+  --nav-ink: #7b2f52;
+  --nav-hover: rgba(123,47,82,.10);
+  --nav-line: rgba(123,47,82,.34);
+  --nav-cta-bg: #7b2f52;
+  --nav-cta-ink: #fffafc;
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.header-overlay:not(.is-solid):not(.menu-open) :focus-visible {
+  outline-color: #7b2f52;
+}
+.scroll-hint {
+  color: #7b2f52;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.7),
+    0 2px 8px rgba(255,255,255,.45);
+}
+.scroll-line {
+  background: rgba(123,47,82,.22);
+}
+.scroll-line::after {
+  background: #7b2f52;
+}
+
+@media (min-width: 761px) {
+  .hero-sticky {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    background: transparent;
+  }
+  .hero-photo,
+  .hero-fx {
+    border-radius: 0 0 30px 30px;
+  }
+}
