@@ -134,6 +134,11 @@ navigation
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeMenu();
 });
+document.addEventListener('click', (event) => {
+  if (!navigation.classList.contains('is-open')) return;
+  if (event.target.closest('#main-nav, .menu-toggle')) return;
+  closeMenu();
+});
 
 // Keep anchor destinations below the sticky header at every screen size.
 const header = document.querySelector('.header');
@@ -235,7 +240,6 @@ if (hero && siteHeader) {
   const photoFrame = hero.querySelector('.hero-photo');
   const photo = photoFrame.querySelector('img');
   const items = [...hero.querySelectorAll('[data-reveal]')];
-  const fill = hero.querySelector('.progress-fill');
   const overlayHeader = siteHeader.classList.contains('header-overlay');
   // The header gets its background as soon as the first text starts to appear.
   const textStart = Math.min(...items.map((item) => Number(item.dataset.reveal))) - 0.01;
@@ -259,7 +263,6 @@ if (hero && siteHeader) {
     }
     if (heroReducedMotion.matches) return;
     photo.style.transform = `translateY(${(0.5 - progress) * 16}px) scale(${1.06 - progress * 0.03})`;
-    fill.style.transform = `scaleY(${progress})`;
     hero.classList.toggle('is-started', progress > 0.08);
     items.forEach((item) => {
       item.classList.toggle('is-visible', progress >= Number(item.dataset.reveal));
@@ -276,4 +279,122 @@ if (hero && siteHeader) {
   window.addEventListener('scroll', requestHeroUpdate, { passive: true });
   window.addEventListener('resize', requestHeroUpdate);
   updateHero();
+}
+
+// Back to top button, page progress and the decorative effects in the sections.
+const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+const scrollTools = document.querySelector('.scroll-tools');
+const toTopButton = document.querySelector('.to-top');
+const progressFill = document.querySelector('.scroll-progress-fill');
+const fxGroups = [...document.querySelectorAll('.fx-layer[data-parallax]')].map(
+  (layer) => ({
+    layer,
+    items: [...layer.querySelectorAll('.fx')].map((element) => ({
+      element,
+      speed: Number(element.dataset.speed || 0),
+    })),
+  }),
+);
+
+function updateScrollTools() {
+  if (!scrollTools) return;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progressFill.style.transform = `scaleY(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+  scrollTools.classList.toggle('is-visible', window.scrollY > 120);
+}
+function driftEffects() {
+  if (motionReduced.matches) return;
+  fxGroups.forEach(({ layer, items }) => {
+    const box = layer.getBoundingClientRect();
+    if (box.bottom < -300 || box.top > window.innerHeight + 300) return;
+    const offset = box.top + box.height / 2 - window.innerHeight / 2;
+    items.forEach(({ element, speed }) => {
+      element.style.setProperty('--py', `${offset * speed}px`);
+    });
+  });
+}
+let scrollFrame = 0;
+function onPageScroll() {
+  if (scrollFrame) return;
+  scrollFrame = requestAnimationFrame(() => {
+    scrollFrame = 0;
+    updateScrollTools();
+    driftEffects();
+  });
+}
+toTopButton?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: motionReduced.matches ? 'auto' : 'smooth' });
+});
+window.addEventListener('scroll', onPageScroll, { passive: true });
+window.addEventListener('resize', onPageScroll);
+onPageScroll();
+
+// Effects fade in when they scroll into view.
+const fxElements = fxGroups.flatMap(({ items }) => items.map(({ element }) => element));
+if ('IntersectionObserver' in window && !motionReduced.matches) {
+  const fxObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        fxObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -8% 0px' },
+  );
+  fxElements.forEach((element) => fxObserver.observe(element));
+} else {
+  fxElements.forEach((element) => element.classList.add('is-in'));
+}
+
+// Cards slide in row by row: everything in the same visual row appears together.
+if ('IntersectionObserver' in window && !motionReduced.matches) {
+  document.querySelectorAll('[data-rows]').forEach((group) => {
+    const cards = [...group.children];
+    cards.forEach((card) => card.classList.add('row-item'));
+    let rowObserver;
+    function buildRows() {
+      rowObserver?.disconnect();
+      const pending = cards
+        .filter(
+          (card) =>
+            card.classList.contains('row-item') && !card.classList.contains('is-in'),
+        )
+        .sort((a, b) => a.offsetTop - b.offsetTop);
+      const rows = [];
+      pending.forEach((card) => {
+        const row = rows[rows.length - 1];
+        if (row && Math.abs(card.offsetTop - row[0].offsetTop) < 8) row.push(card);
+        else rows.push([card]);
+      });
+      rowObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const row = rows.find((items) => items[0] === entry.target);
+            rowObserver.unobserve(entry.target);
+            row?.forEach((card, index) => {
+              card.style.transitionDelay = `${index * 80}ms`;
+              card.classList.add('is-in');
+              setTimeout(
+                () => {
+                  card.classList.remove('row-item', 'is-in');
+                  card.style.transitionDelay = '';
+                },
+                1500 + index * 80,
+              );
+            });
+          });
+        },
+        { rootMargin: '0px 0px -12% 0px' },
+      );
+      rows.forEach((row) => rowObserver.observe(row[0]));
+    }
+    buildRows();
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(buildRows, 150);
+    });
+  });
 }

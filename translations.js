@@ -58,6 +58,7 @@ const translations = {
     storyWord2: 'Natürlich',
     storyWord3: 'Individuell',
     scrollHint: 'Scrollen, um zu entdecken',
+    toTop: 'Nach oben',
     hybridDesc:
       'Nagelhautpflege, Feilen und Formen sowie Hybridlack und Pflegebehandlung.',
     hybridName: 'Hybrid-Maniküre (Shellac)',
@@ -173,6 +174,7 @@ const translations = {
     storyWord2: 'Naturalność',
     storyWord3: 'Indywidualność',
     scrollHint: 'Przewiń, aby odkryć',
+    toTop: 'Do góry',
     hybridDesc:
       'Opracowanie skórek, opiłowanie i nadanie kształtu, lakier hybrydowy oraz pielęgnacja.',
     hybridName: 'Manicure hybrydowy (Shellac)',
@@ -287,6 +289,7 @@ const translations = {
     storyWord2: 'Natural',
     storyWord3: 'Individual',
     scrollHint: 'Scroll to explore',
+    toTop: 'Back to top',
     hybridDesc: 'Cuticle care, filing and shaping, gel polish and a care treatment.',
     hybridName: 'Gel polish manicure (Shellac)',
     included: 'What is included',
@@ -397,6 +400,7 @@ const translations = {
     storyWord2: 'Естественность',
     storyWord3: 'Индивидуальность',
     scrollHint: 'Прокрутите, чтобы узнать больше',
+    toTop: 'Наверх',
     hybridDesc:
       'Обработка кутикулы, опил и придание формы, покрытие гель-лаком и завершающий уход.',
     hybridName: 'Маникюр с гель-лаком',
@@ -510,6 +514,7 @@ const translations = {
     storyWord2: 'Природність',
     storyWord3: 'Індивідуальність',
     scrollHint: 'Прокрутіть, щоб дізнатися більше',
+    toTop: 'Угору',
     hybridDesc:
       'Обробка кутикули, обпилювання та надання форми, покриття гель-лаком і завершальний догляд.',
     hybridName: 'Манікюр із гель-лаком',

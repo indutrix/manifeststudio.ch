@@ -931,10 +931,11 @@ body:has(.gallery-dialog[open]) {
     linear-gradient(180deg, rgba(24, 12, 18, 0.5), transparent 26%, transparent 70%, rgba(30, 17, 24, 0.26));
 }
 .hero .photo-stamp {
-  z-index: 2;
+  z-index: 4;
   right: auto;
   bottom: 25px;
   left: 26px;
+  border-radius: 30px;
 }
 .hero-copy {
   position: relative;
@@ -1065,24 +1066,6 @@ body:has(.gallery-dialog[open]) {
 .hero.is-started .scroll-hint {
   opacity: 0;
 }
-.progress-rail {
-  position: absolute;
-  z-index: 6;
-  top: 50%;
-  right: 8px;
-  width: 1px;
-  height: 90px;
-  background: rgba(255, 250, 252, 0.3);
-  transform: translateY(-20%);
-}
-.progress-fill {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #fffafc;
-  transform: scaleY(0);
-  transform-origin: top;
-}
 @keyframes scroll-pulse {
   0% {
     transform: translateX(-105%);
@@ -1126,17 +1109,18 @@ body:has(.gallery-dialog[open]) {
   }
   .hero .photo-stamp {
     z-index: 4;
-    top: calc(var(--header-h, 65px) + 12px);
-    bottom: auto;
-    left: 13px;
-    padding: 8px 15px;
-    font-size: 22px;
+    top: auto;
+    bottom: 14px;
+    left: 14px;
+    padding: 9px 17px 7px;
+    border-radius: 18px;
+    font-size: 20px;
   }
   .hero-copy {
     width: 100%;
     justify-self: stretch;
     justify-content: flex-end;
-    padding: 20px 25px 34px;
+    padding: 20px 25px 76px;
     background: linear-gradient(180deg, transparent 22%, rgba(29, 16, 23, 0.45) 52%, rgba(29, 16, 23, 0.82) 100%);
   }
   .hero-copy .eyebrow {
@@ -1164,10 +1148,6 @@ body:has(.gallery-dialog[open]) {
   .scroll-hint {
     display: none;
   }
-  .progress-rail {
-    right: 6px;
-    height: 65px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero {
@@ -1185,8 +1165,7 @@ body:has(.gallery-dialog[open]) {
   .hero-photo img {
     transform: none !important;
   }
-  .scroll-hint,
-  .progress-rail {
+  .scroll-hint {
     display: none;
   }
 }
@@ -1534,5 +1513,201 @@ body:has(.gallery-dialog[open]) {
   .header,
   .header * {
     transition-duration: 1ms !important;
+  }
+}
+
+/* Thin separator between the booking block and the studio details (like in the footer). */
+.contact .location-grid {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid #c596ad80;
+}
+@media (max-width: 760px) {
+  .contact .location-grid {
+    margin-top: 40px;
+    padding-top: 40px;
+  }
+}
+
+/* Decorative effects (from images/fx). */
+main > section.section {
+  position: relative;
+  isolation: isolate;
+}
+.fx-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-fx {
+  grid-area: 1 / 1;
+  z-index: 2;
+  border-radius: 0 0 30px 30px;
+}
+.fx {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: min(calc(var(--w) * 1px), calc(var(--w) * 0.0694vw), calc(var(--w) * 0.1111vh));
+  transform: translate3d(0, var(--py, 0px), 0);
+  will-change: transform;
+}
+.fx img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.55) rotate(calc(var(--r) - 25deg));
+  transition:
+    opacity 900ms ease,
+    transform 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.fx.is-in img,
+.fx.is-visible img {
+  opacity: var(--o, 0.9);
+  transform: scale(1) rotate(var(--r));
+  animation: fx-float 7s ease-in-out infinite;
+  animation-delay: calc(var(--d, 0ms) + 1.2s);
+}
+@keyframes fx-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+/* Rows of cards slide in together. */
+.row-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.row-item.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Back to top button with the page progress next to it. */
+.scroll-tools {
+  position: fixed;
+  right: clamp(16px, 2.2vw, 32px);
+  bottom: 24px;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity 300ms ease,
+    visibility 300ms ease,
+    transform 300ms ease;
+}
+.scroll-tools.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.scroll-progress {
+  width: 4px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(247, 239, 242, 0.8);
+  box-shadow: 0 0 0 1px rgba(135, 83, 109, 0.28);
+}
+.scroll-progress-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--pink-dark);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.to-top {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(135, 83, 109, 0.55);
+  border-radius: 50%;
+  background: rgba(247, 239, 242, 0.92);
+  color: var(--pink-dark);
+  box-shadow: 0 10px 30px rgba(41, 35, 41, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    transform 250ms ease;
+}
+.to-top:hover,
+.to-top:focus-visible {
+  background: var(--pink-dark);
+  color: #fffafc;
+  transform: translateY(-2px);
+}
+.to-top svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 760px) {
+  .fx {
+    left: var(--mx, var(--x));
+    top: var(--my, var(--y));
+    width: calc(var(--w) * 0.58px);
+  }
+  .fx.d-only {
+    display: none;
+  }
+}
+@media (max-width: 760px) and (max-height: 620px) {
+  .fx.m-tall {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .hero-fx {
+    border-radius: 0 0 18px 18px;
+  }
+  .scroll-progress {
+    display: none;
+  }
+  .scroll-tools {
+    right: 16px;
+    bottom: 16px;
+  }
+  .to-top {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx {
+    transform: none;
+  }
+  .fx img {
+    opacity: var(--o, 0.9);
+    transform: rotate(var(--r));
+    transition: none;
+    animation: none !important;
   }
 }
