@@ -2270,3 +2270,67 @@ main > section.section,
     border-radius: 0 0 30px 30px;
   }
 }
+
+/* Desktop hero composition: larger copy, moved left/up, with a soft artwork-to-page edge blend. */
+@media (min-width: 761px) {
+  .hero-copy {
+    width: min(52%, 790px);
+    justify-self: end;
+    transform: translate(-10vw, -5vh);
+    padding-right: 0;
+  }
+
+  .hero-copy .eyebrow {
+    font-size: 11px;
+    letter-spacing: .22em;
+    margin-bottom: clamp(18px, 2.4vh, 30px);
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(46px, min(5.35vw, 8.8vh), 94px);
+    line-height: .96;
+  }
+
+  .hero-copy h1 em {
+    margin-top: clamp(14px, 2vh, 24px);
+    font-size: .72em;
+    line-height: 1.02;
+  }
+
+  .hero-copy .hero-description {
+    max-width: 520px;
+    margin-top: clamp(18px, 2.5vh, 28px);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .hero-copy .location-tag {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .hero .action {
+    margin-top: 20px;
+    transform-origin: left center;
+  }
+
+  /* No dark overlay: only feather the artwork into the page background. */
+  .hero-photo::before {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    content: '';
+    pointer-events: none;
+    background:
+      linear-gradient(180deg,
+        transparent 0%,
+        transparent 88%,
+        rgba(243,227,235,.26) 94%,
+        rgba(243,227,235,.82) 100%),
+      linear-gradient(90deg,
+        rgba(243,227,235,.26) 0%,
+        transparent 3.5%,
+        transparent 96.5%,
+        rgba(243,227,235,.26) 100%);
+  }
+}
