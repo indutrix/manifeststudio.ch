@@ -2548,3 +2548,35 @@ main > section.section,
     rotate: var(--rr3);
   }
 }
+
+/* Animate the foreground decorations over Karolina's portrait too. */
+.about-photo-fx .photo-fx {
+  animation: about-fx-a 5.2s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+.about-photo-fx .photo-fx:nth-child(2) {
+  animation-name: about-fx-b;
+  animation-duration: 5.8s;
+  animation-delay: -1.4s;
+}
+.about-photo-fx .photo-fx:nth-child(3) {
+  animation-name: about-fx-c;
+  animation-duration: 4.9s;
+  animation-delay: -2.1s;
+}
+@keyframes about-fx-a {
+  0%,100% { transform: translate(0,0) rotate(var(--ar)); }
+  35% { transform: translate(10px,-12px) rotate(calc(var(--ar) + 2deg)); }
+  70% { transform: translate(-6px,-20px) rotate(calc(var(--ar) - 1deg)); }
+}
+@keyframes about-fx-b {
+  0%,100% { transform: translate(0,0) rotate(var(--ar)); }
+  32% { transform: translate(-12px,-6px) rotate(calc(var(--ar) - 2deg)); }
+  68% { transform: translate(7px,14px) rotate(calc(var(--ar) + 1.5deg)); }
+}
+@keyframes about-fx-c {
+  0%,100% { transform: translate(0,0) rotate(var(--ar)); }
+  30% { transform: translate(8px,10px) rotate(calc(var(--ar) + 2.5deg)); }
+  72% { transform: translate(-10px,-8px) rotate(calc(var(--ar) - 2deg)); }
+}
