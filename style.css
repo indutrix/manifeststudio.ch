@@ -1844,3 +1844,46 @@ main > section.section,
     clip-path: inset(0 round 0 0 18px 18px);
   }
 }
+
+/* FX composition refresh: irregular, evenly spread and allowed to overlap content slightly. */
+.fx-layer.fx-overlap { z-index: 2; overflow: visible; }
+.fx-layer.fx-overlap ~ * { position: relative; z-index: 1; }
+.about .fx-layer.fx-overlap { z-index: 3; }
+.about .owner-photo, .about .owner-copy { position: relative; z-index: 1; }
+.benefits .fx-layer.fx-overlap, .services .fx-layer.fx-overlap, .price-page .fx-layer.fx-overlap { z-index: 2; }
+.benefit-grid article, .service-card { position: relative; z-index: 1; }
+.fx-layer.fx-overlap .fx { pointer-events: none; }
+.fx-layer.fx-overlap .fx img { --o: .82; }
+
+/* Booking button reuses the glass/stamp treatment from the removed hero logo. */
+.hero .action {
+  padding: 16px 30px 13px;
+  border: 1px solid var(--rose-line);
+  border-radius: 30px;
+  background: rgba(46, 26, 36, 0.5);
+  color: var(--rose-text);
+  text-shadow: 0 1px 14px rgba(24, 12, 18, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.hero .action .icon { color: var(--rose-text); }
+.hero .action:hover { background: rgba(46, 26, 36, 0.68); }
+
+/* Keep authored Y positions on tablet/mobile instead of forcing every FX to section edges. */
+@media (max-width: 1100px) {
+  .fx-layer:not(.hero-fx) .fx {
+    left: var(--mx, var(--x));
+    top: var(--my, var(--y));
+    bottom: auto;
+    width: calc(var(--mw, 36) * 1px);
+    transform: translate3d(0, var(--py, 0px), 0);
+  }
+  .fx-layer:not(.hero-fx) .fx[data-m='b'] {
+    top: var(--my, var(--y));
+    bottom: auto;
+  }
+}
+@media (max-width: 760px) {
+  .fx-layer.fx-overlap .fx img { --o: .72; }
+  .price-page .fx-layer.fx-overlap .fx { width: calc(var(--mw, 34) * .9px); }
+}
