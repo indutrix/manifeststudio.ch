@@ -2465,3 +2465,86 @@ main > section.section,
     --o: .86;
   }
 }
+
+/* Give every global/footer FX its own flight direction and phase. */
+.site-fx .fx,
+.footer-global-fx .fx,
+.price-page > .site-fx .fx {
+  --dx1: 6px;
+  --dy1: -10px;
+  --dx2: -5px;
+  --dy2: -21px;
+  --dx3: 7px;
+  --dy3: -8px;
+  --rr1: 1.5deg;
+  --rr2: -1.8deg;
+  --rr3: 1deg;
+}
+
+.site-fx .fx:nth-child(6n + 1),
+.footer-global-fx .fx:nth-child(6n + 1),
+.price-page > .site-fx .fx:nth-child(6n + 1) {
+  --dx1: 10px; --dy1: -6px;
+  --dx2: 18px; --dy2: -14px;
+  --dx3: 8px; --dy3: -3px;
+  --rr1: 2deg; --rr2: 3deg; --rr3: 1deg;
+}
+.site-fx .fx:nth-child(6n + 2),
+.footer-global-fx .fx:nth-child(6n + 2),
+.price-page > .site-fx .fx:nth-child(6n + 2) {
+  --dx1: -8px; --dy1: -12px;
+  --dx2: -16px; --dy2: -4px;
+  --dx3: -6px; --dy3: 7px;
+  --rr1: -2deg; --rr2: -3deg; --rr3: -1deg;
+}
+.site-fx .fx:nth-child(6n + 3),
+.footer-global-fx .fx:nth-child(6n + 3),
+.price-page > .site-fx .fx:nth-child(6n + 3) {
+  --dx1: 4px; --dy1: 9px;
+  --dx2: 12px; --dy2: 18px;
+  --dx3: -3px; --dy3: 8px;
+  --rr1: 1deg; --rr2: -2deg; --rr3: 2deg;
+}
+.site-fx .fx:nth-child(6n + 4),
+.footer-global-fx .fx:nth-child(6n + 4),
+.price-page > .site-fx .fx:nth-child(6n + 4) {
+  --dx1: -5px; --dy1: 7px;
+  --dx2: -14px; --dy2: 16px;
+  --dx3: 5px; --dy3: 10px;
+  --rr1: -1deg; --rr2: 2deg; --rr3: -2deg;
+}
+.site-fx .fx:nth-child(6n + 5),
+.footer-global-fx .fx:nth-child(6n + 5),
+.price-page > .site-fx .fx:nth-child(6n + 5) {
+  --dx1: 12px; --dy1: -2px;
+  --dx2: 20px; --dy2: 5px;
+  --dx3: 9px; --dy3: 11px;
+  --rr1: 2deg; --rr2: -1deg; --rr3: 3deg;
+}
+.site-fx .fx:nth-child(6n),
+.footer-global-fx .fx:nth-child(6n),
+.price-page > .site-fx .fx:nth-child(6n) {
+  --dx1: -10px; --dy1: 2px;
+  --dx2: -18px; --dy2: 11px;
+  --dx3: -7px; --dy3: -6px;
+  --rr1: -2deg; --rr2: 1deg; --rr3: -3deg;
+}
+
+@keyframes fx-float {
+  0%, 100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  24% {
+    translate: var(--dx1) var(--dy1);
+    rotate: var(--rr1);
+  }
+  52% {
+    translate: var(--dx2) var(--dy2);
+    rotate: var(--rr2);
+  }
+  78% {
+    translate: var(--dx3) var(--dy3);
+    rotate: var(--rr3);
+  }
+}
