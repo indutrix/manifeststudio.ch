@@ -406,7 +406,7 @@ if ('IntersectionObserver' in window && !motionReduced.matches) {
             });
           });
         },
-        { rootMargin: '0px 0px 18% 0px', threshold: 0.01 },
+        { rootMargin: '0px 0px -4% 0px', threshold: 0.08 },
       );
       rows.forEach((row) => rowObserver.observe(row[0]));
     }
