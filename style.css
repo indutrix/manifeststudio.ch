@@ -1887,3 +1887,48 @@ main > section.section,
   .fx-layer.fx-overlap .fx img { --o: .72; }
   .price-page .fx-layer.fx-overlap .fx { width: calc(var(--mw, 34) * .9px); }
 }
+
+/* Mobile hero v2: keep the visual pinned below the header while shortening the story scroll. */
+@media (max-width: 760px) {
+  .hero { height: 235svh; }
+  .hero-sticky {
+    top: var(--header-h, 77px);
+    height: calc(100svh - var(--header-h, 77px));
+    min-height: 0;
+    max-height: none;
+    padding: 0 16px 16px;
+    align-items: stretch;
+  }
+  .hero-photo, .hero-copy, .hero-fx {
+    height: 100%;
+    min-height: 0;
+  }
+  .hero-photo::after {
+    background: linear-gradient(180deg,
+      rgba(24,12,18,.12) 0%,
+      transparent 25%,
+      transparent 56%,
+      rgba(29,16,23,.18) 82%,
+      rgba(29,16,23,.28) 100%);
+  }
+  .hero-copy {
+    padding: 18px 22px 34px;
+    background: linear-gradient(180deg,
+      transparent 48%,
+      rgba(29,16,23,.08) 64%,
+      rgba(29,16,23,.26) 100%);
+  }
+  .hero-photo > img {
+    object-position: 18% 20%;
+  }
+  .hero-fx .fx { width: calc(var(--mw, var(--w)) * .72px); }
+  .hero-fx .fx:nth-child(1) { --mx:72%; --my:10%; --mw:42; }
+  .hero-fx .fx:nth-child(2) { --mx:4%; --my:30%; --mw:38; }
+  .hero-fx .fx:nth-child(3) { --mx:84%; --my:46%; --mw:25; }
+  .hero-fx .fx:nth-child(4) { --mx:9%; --my:63%; --mw:31; }
+  .hero-fx .fx:nth-child(5) { --mx:58%; --my:78%; --mw:52; }
+  .hero-fx .fx:nth-child(8) { --mx:78%; --my:88%; --mw:32; }
+  .hero-fx .fx:nth-child(12) { --mx:34%; --my:18%; --mw:20; }
+  .hero-fx .fx img { --o: .62; }
+  .reveal { transform: translateY(20px); filter: blur(6px); }
+}
