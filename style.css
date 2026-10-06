@@ -1976,3 +1976,55 @@ main > section.section,
   .hero .hero-fx .fx:nth-child(n) { display: block; }
   .hero .hero-fx .fx.d-only { display: none; }
 }
+
+/* Desktop hero polish: no visible edge where the text darkening begins. */
+@media (min-width: 761px) {
+  .hero-photo::after {
+    background:
+      radial-gradient(ellipse 58% 88% at 82% 52%,
+        rgba(29,16,23,.42) 0%,
+        rgba(29,16,23,.30) 34%,
+        rgba(29,16,23,.15) 58%,
+        rgba(29,16,23,.05) 76%,
+        transparent 100%),
+      linear-gradient(180deg,
+        rgba(24,12,18,.14) 0%,
+        transparent 24%,
+        transparent 76%,
+        rgba(30,17,24,.08) 100%);
+  }
+  .hero-copy { clip-path: none; }
+  .hero-copy::before {
+    inset: -16% -18% -16% -42%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 72% 50%,
+      rgba(30,17,24,.36) 0%,
+      rgba(30,17,24,.22) 42%,
+      rgba(30,17,24,.08) 68%,
+      transparent 86%);
+    filter: blur(72px);
+  }
+}
+
+/* Contact/footer: scattered constellation, never a decorative frame. */
+.contact .contact-fx,
+.footer .footer-fx { z-index: 0; overflow: hidden; }
+.contact .contact-fx ~ *,
+.footer .footer-fx ~ * { position: relative; z-index: 2; }
+.contact .contact-fx .fx img,
+.footer .footer-fx .fx img { --o: .56; }
+
+@media (max-width: 760px) {
+  .contact .contact-fx .fx:nth-child(1) { left: 6%; top: 13%; }
+  .contact .contact-fx .fx:nth-child(2) { left: 77%; top: 29%; }
+  .contact .contact-fx .fx:nth-child(3) { left: 8%; top: 48%; }
+  .contact .contact-fx .fx:nth-child(4) { left: 74%; top: 65%; }
+  .contact .contact-fx .fx:nth-child(5) { left: 12%; top: 82%; }
+  .contact .contact-fx .fx:nth-child(n+6) { display: none; }
+
+  .footer .footer-fx .fx:nth-child(1) { left: 8%; top: 24%; }
+  .footer .footer-fx .fx:nth-child(2) { left: 68%; top: 18%; }
+  .footer .footer-fx .fx:nth-child(3) { left: 43%; top: 58%; }
+  .footer .footer-fx .fx:nth-child(4) { left: 78%; top: 78%; }
+  .footer .footer-fx .fx:nth-child(n+5) { display: none; }
+}
