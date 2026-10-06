@@ -1932,3 +1932,47 @@ main > section.section,
   .hero-fx .fx img { --o: .62; }
   .reveal { transform: translateY(20px); filter: blur(6px); }
 }
+
+/* FX layering v3: decoration is background everywhere except hero and About photo. */
+.fx-layer.fx-under { z-index: 0; overflow: hidden; }
+.fx-layer.fx-under ~ *,
+.gallery .fx-layer ~ *,
+.training .fx-layer ~ *,
+.instagram .fx-layer ~ *,
+.reviews .fx-layer ~ *,
+.contact .fx-layer ~ * { position: relative; z-index: 2; }
+.fx-layer.fx-under .fx img { --o: .64; }
+.about .fx-layer.fx-photo-over { z-index: 3; overflow: visible; }
+.about .fx-layer.fx-photo-over ~ .owner-photo { position: relative; z-index: 1; }
+.about .fx-layer.fx-photo-over ~ .owner-copy { position: relative; z-index: 4; }
+.about .fx-layer.fx-photo-over .fx img { --o: .72; }
+
+/* On phones distribute decorative marks through the full section height.
+   Keep them in side gutters so copy stays clean; cards remain above them. */
+@media (max-width: 760px) {
+  main > .section:not(.hero) .fx-layer .fx:nth-child(1) { left: 4%;  top: 14%; }
+  main > .section:not(.hero) .fx-layer .fx:nth-child(2) { left: 82%; top: 31%; }
+  main > .section:not(.hero) .fx-layer .fx:nth-child(3) { left: 7%;  top: 49%; }
+  main > .section:not(.hero) .fx-layer .fx:nth-child(4) { left: 80%; top: 66%; }
+  main > .section:not(.hero) .fx-layer .fx:nth-child(5) { left: 5%;  top: 82%; }
+  main > .section:not(.hero) .fx-layer .fx:nth-child(6) { left: 84%; top: 91%; }
+  main > .section:not(.hero) .fx-layer .fx:nth-child(n+7) { display: none; }
+
+  main > .section:not(.hero) .fx-layer .fx {
+    width: min(calc(var(--mw, 34) * .82px), 42px);
+    transform: translate3d(0,0,0);
+  }
+  main > .section:not(.hero) .fx-layer .fx img { --o: .58; }
+
+  /* About: allowed over the photograph, never over the biography copy. */
+  .about .fx-layer.fx-photo-over .fx:nth-child(1) { left: 5%; top: 12%; }
+  .about .fx-layer.fx-photo-over .fx:nth-child(2) { left: 70%; top: 27%; }
+  .about .fx-layer.fx-photo-over .fx:nth-child(3) { left: 8%; top: 43%; }
+  .about .fx-layer.fx-photo-over .fx:nth-child(4) { left: 72%; top: 58%; }
+  .about .fx-layer.fx-photo-over .fx:nth-child(5) { left: 6%; top: 73%; }
+  .about .fx-layer.fx-photo-over .fx:nth-child(6) { left: 76%; top: 88%; }
+
+  /* Hero remains foreground decoration. */
+  .hero .hero-fx .fx:nth-child(n) { display: block; }
+  .hero .hero-fx .fx.d-only { display: none; }
+}
