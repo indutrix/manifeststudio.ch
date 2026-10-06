@@ -2580,3 +2580,127 @@ main > section.section,
   30% { transform: translate(8px,10px) rotate(calc(var(--ar) + 2.5deg)); }
   72% { transform: translate(-10px,-8px) rotate(calc(var(--ar) - 2deg)); }
 }
+
+/* Hero copy v3: anchor to a fixed safe region of the artwork.
+   Browser zoom reduces the CSS viewport, so typography steps down instead of drifting. */
+@media (min-width: 761px) {
+  .hero-copy {
+    position: absolute;
+    left: 66.5%;
+    right: auto;
+    top: 13.5%;
+    width: 29%;
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    transform: none !important;
+    justify-self: auto;
+    align-self: auto;
+  }
+
+  .hero-copy .eyebrow {
+    font-size: clamp(8px, .72vw, 11px);
+    margin-bottom: clamp(12px, 1.7vh, 22px);
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(38px, min(4.55vw, 7.4vh), 76px);
+    line-height: .96;
+  }
+
+  .hero-copy h1 em {
+    margin-top: clamp(10px, 1.5vh, 18px);
+    font-size: .72em;
+    line-height: 1.01;
+  }
+
+  .hero-copy .hero-description {
+    max-width: 100%;
+    margin-top: clamp(14px, 1.9vh, 22px);
+    font-size: clamp(12px, .95vw, 16px);
+    line-height: 1.45;
+  }
+
+  .hero-copy .location-tag {
+    margin-top: 8px;
+    font-size: clamp(11px, .85vw, 14px);
+  }
+
+  .hero .action {
+    margin-top: clamp(14px, 1.8vh, 20px);
+    font-size: clamp(11px, .85vw, 14px);
+    padding: clamp(10px, 1.2vh, 14px) clamp(18px, 1.6vw, 28px);
+  }
+}
+
+/* Zoomed / narrower desktop-tablet view: preserve the same region, shrink the copy harder. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .hero-copy {
+    left: 66.5%;
+    top: 13.5%;
+    width: 29%;
+    right: auto;
+  }
+
+  .hero-copy .eyebrow {
+    font-size: 7.5px;
+    letter-spacing: .18em;
+    margin-bottom: 10px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(29px, 4vw, 46px);
+  }
+
+  .hero-copy h1 em {
+    margin-top: 8px;
+    font-size: .70em;
+  }
+
+  .hero-copy .hero-description {
+    margin-top: 12px;
+    font-size: clamp(10px, 1.05vw, 13px);
+  }
+
+  .hero-copy .location-tag {
+    font-size: clamp(10px, .95vw, 12px);
+  }
+
+  .hero .action {
+    margin-top: 12px;
+    padding: 9px 16px;
+    font-size: 11px;
+  }
+}
+
+/* Extra zoom compensation before the mobile layout actually takes over. */
+@media (min-width: 761px) and (max-width: 920px) {
+  .hero-copy {
+    left: 67%;
+    top: 14%;
+    width: 28%;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(25px, 3.75vw, 34px);
+  }
+
+  .hero-copy .eyebrow {
+    font-size: 7px;
+  }
+
+  .hero-copy .hero-description {
+    font-size: 10px;
+    line-height: 1.38;
+  }
+
+  .hero-copy .location-tag {
+    font-size: 9.5px;
+  }
+
+  .hero .action {
+    padding: 8px 14px;
+    font-size: 10px;
+  }
+}
