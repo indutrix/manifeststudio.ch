@@ -394,23 +394,31 @@ if ('IntersectionObserver' in window && !motionReduced.matches) {
             const row = rows.find((items) => items[0] === entry.target);
             rowObserver.unobserve(entry.target);
             row?.forEach((card, index) => {
-              card.style.transitionDelay = `${index * 80}ms`;
+              card.style.transitionDelay = `${index * 110}ms`;
               card.classList.add('is-in');
               setTimeout(
                 () => {
                   card.classList.remove('row-item', 'is-in');
                   card.style.transitionDelay = '';
                 },
-                1500 + index * 80,
+                2100 + index * 110,
               );
             });
           });
         },
-        { rootMargin: '0px 0px -12% 0px' },
+        { rootMargin: '0px 0px 18% 0px', threshold: 0.01 },
       );
       rows.forEach((row) => rowObserver.observe(row[0]));
     }
     buildRows();
+
+    // Recalculate visual rows after fonts/images settle so observers never track stale positions.
+    window.addEventListener('load', buildRows, { once: true });
+    document.fonts?.ready?.then(buildRows);
+    group.querySelectorAll('img').forEach((img) => {
+      if (!img.complete) img.addEventListener('load', buildRows, { once: true });
+    });
+
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
