@@ -3166,3 +3166,79 @@ main > section.section,
     font-size: 22px;
   }
 }
+
+/* Hero copy rhythm + slightly smaller CTA on every viewport. */
+.hero-copy .eyebrow {
+  margin-bottom: clamp(16px, 2vh, 26px);
+}
+
+.hero-copy h1 em {
+  margin-top: clamp(12px, 1.8vh, 22px);
+}
+
+.hero-copy .hero-description {
+  margin-top: clamp(18px, 2.35vh, 28px);
+}
+
+.hero-copy .location-tag {
+  margin-top: 11px;
+}
+
+.hero .action {
+  margin-top: clamp(16px, 2.1vh, 24px);
+  padding: 13px 25px 11px;
+  font-size: clamp(18px, 1.95vw, 28px);
+}
+
+.hero .action::after {
+  top: -8px;
+  right: 19px;
+  width: 17px;
+  height: 19px;
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  .hero-copy .eyebrow {
+    margin-bottom: 13px;
+  }
+  .hero-copy h1 em {
+    margin-top: 10px;
+  }
+  .hero-copy .hero-description {
+    margin-top: 15px;
+  }
+  .hero-copy .location-tag {
+    margin-top: 9px;
+  }
+  .hero .action {
+    margin-top: 15px;
+    padding: 10px 19px 9px;
+    font-size: clamp(14px, 1.55vw, 19px);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-copy .eyebrow {
+    margin-bottom: 11px;
+  }
+  .hero-copy h1 em {
+    margin-top: 11px;
+  }
+  .hero-copy .hero-description {
+    margin-top: 15px;
+  }
+  .hero-copy .location-tag {
+    margin-top: 9px;
+  }
+  .hero .action {
+    margin-top: 14px;
+    padding: 8px 17px 7px;
+    font-size: clamp(15px, 4.6vw, 18px);
+  }
+  .hero .action::after {
+    top: -7px;
+    right: 15px;
+    width: 15px;
+    height: 17px;
+  }
+}
