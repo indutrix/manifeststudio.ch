@@ -219,39 +219,43 @@ if (galleryDialog) {
   );
 }
 
-// Scroll story: words appear one by one while the photo stays pinned.
-const story = document.querySelector('.story');
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (story && !reduceMotion.matches) {
-  const sticky = story.querySelector('.story-sticky');
-  const photo = story.querySelector('.story-photo img');
-  const words = [...story.querySelectorAll('.story-word')];
+// Scroll hero: the photo stays pinned and the texts appear one by one.
+const hero = document.querySelector('.hero');
+const siteHeader = document.querySelector('.header');
+const heroReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (hero && siteHeader) {
+  const sticky = hero.querySelector('.hero-sticky');
+  const photo = hero.querySelector('.hero-photo img');
+  const items = [...hero.querySelectorAll('[data-reveal]')];
+  const fill = hero.querySelector('.progress-fill');
   let waiting = false;
 
-  function updateStory() {
+  function updateHero() {
     waiting = false;
-    const distance = story.offsetHeight - sticky.offsetHeight;
+    const headerHeight = siteHeader.offsetHeight;
+    document.documentElement.style.setProperty('--header-h', `${headerHeight}px`);
+    if (heroReducedMotion.matches) return;
+    const distance = hero.offsetHeight - sticky.offsetHeight;
     const progress = Math.min(
       1,
-      Math.max(0, -story.getBoundingClientRect().top / distance),
+      Math.max(0, (headerHeight - hero.getBoundingClientRect().top) / distance),
     );
-    photo.style.transform = `scale(${1 + progress * 0.08})`;
-    words.forEach((word, index) => {
-      const start = 0.1 + index * 0.25;
-      const visible = Math.min(1, Math.max(0, (progress - start) / 0.2));
-      word.style.opacity = visible;
-      word.style.transform = `translateY(${(1 - visible) * 28}px)`;
+    photo.style.transform = `translateY(${(0.5 - progress) * 16}px) scale(${1.06 - progress * 0.03})`;
+    fill.style.transform = `scaleY(${progress})`;
+    hero.classList.toggle('is-started', progress > 0.08);
+    items.forEach((item) => {
+      item.classList.toggle('is-visible', progress >= Number(item.dataset.reveal));
     });
   }
 
-  function requestUpdate() {
+  function requestHeroUpdate() {
     if (!waiting) {
       waiting = true;
-      requestAnimationFrame(updateStory);
+      requestAnimationFrame(updateHero);
     }
   }
 
-  window.addEventListener('scroll', requestUpdate, { passive: true });
-  window.addEventListener('resize', requestUpdate);
-  updateStory();
+  window.addEventListener('scroll', requestHeroUpdate, { passive: true });
+  window.addEventListener('resize', requestHeroUpdate);
+  updateHero();
 }

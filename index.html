@@ -197,77 +197,88 @@
       <section
         class="hero"
         id="home"
+        aria-label="Manifest Studio"
       >
-        <div class="hero-photo">
-          <img
-            src="images/work-01.jpg"
-            width="1350"
-            height="1800"
-            alt=""
-            data-work="0"
-            fetchpriority="high"
-          /><span class="photo-stamp">manifest studio</span>
-        </div>
-        <div class="hero-copy">
-          <p
-            class="eyebrow"
-            data-t="intro"
-          ></p>
-          <h1><span data-t="headline1"></span><em data-t="headline2"></em></h1>
-          <p
-            class="hero-description"
-            data-t="description"
-          ></p>
-          <p class="location-tag">
-            <svg
-              class="icon"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <use href="icons.svg#pin"></use></svg
-            ><span data-t="country"></span>
-          </p>
-          <a
-            href="#contact"
-            class="action"
-            ><svg
-              class="icon"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <use href="icons.svg#calendar"></use></svg
-            ><span data-t="book"></span
-          ></a>
-        </div>
-      </section>
-      <section
-        class="story"
-        id="story"
-        aria-hidden="true"
-      >
-        <div class="story-sticky">
-          <div class="story-photo">
+        <div class="hero-sticky">
+          <div class="hero-photo">
             <img
-              src="images/work-02.jpg"
+              src="images/work-01.jpg"
               width="1350"
               height="1800"
               alt=""
-              loading="lazy"
-            />
+              data-work="0"
+              fetchpriority="high"
+            /><span class="photo-stamp">manifest studio</span>
           </div>
-          <div class="story-words">
+          <div class="hero-copy">
             <p
-              class="story-word"
-              data-t="storyWord1"
+              class="eyebrow reveal"
+              data-reveal="0.05"
+              data-t="intro"
+            ></p>
+            <h1>
+              <span
+                class="reveal"
+                data-reveal="0.17"
+                data-t="headline1"
+              ></span>
+              <em>
+                <span
+                  class="reveal"
+                  data-reveal="0.32"
+                  data-t="storyWord1"
+                ></span>
+                <span
+                  class="reveal"
+                  data-reveal="0.40"
+                  data-t="storyWord2"
+                ></span>
+                <span
+                  class="reveal"
+                  data-reveal="0.48"
+                  data-t="storyWord3"
+                ></span>
+              </em>
+            </h1>
+            <p
+              class="hero-description reveal"
+              data-reveal="0.58"
+              data-t="description"
             ></p>
             <p
-              class="story-word"
-              data-t="storyWord2"
-            ></p>
-            <p
-              class="story-word"
-              data-t="storyWord3"
-            ></p>
+              class="location-tag reveal"
+              data-reveal="0.66"
+            >
+              <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#pin"></use></svg
+              ><span data-t="country"></span>
+            </p>
+            <a
+              href="#contact"
+              class="action reveal"
+              data-reveal="0.76"
+              ><svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="book"></span
+            ></a>
+          </div>
+          <div
+            class="scroll-hint"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="progress-rail"
+            aria-hidden="true"
+          >
+            <span class="progress-fill"></span>
           </div>
         </div>
       </section>
