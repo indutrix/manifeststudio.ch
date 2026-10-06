@@ -2980,3 +2980,102 @@ main > section.section,
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
+/* MOBILE polish v4 — fluid header, tighter hero/About spacing, larger hero FX. */
+@media (max-width: 760px) {
+  /* Slightly shorter scroll story = less empty space before About. */
+  .hero {
+    height: 160svh;
+  }
+
+  /* Smaller booking pill on phones. */
+  .hero .action {
+    padding: clamp(9px, 2.6vw, 11px) clamp(18px, 5vw, 22px);
+    font-size: clamp(16px, 5vw, 20px);
+    margin-top: 9px;
+  }
+  .hero .action::after {
+    top: -8px;
+    right: 18px;
+    width: 17px;
+    height: 19px;
+  }
+
+  /* Make hero decorations more present on phones. */
+  .hero-fx .fx {
+    width: calc(var(--mw, var(--w)) * .92px) !important;
+  }
+  .hero-fx .fx img {
+    --o: .94;
+  }
+
+  /* Bring the separator and About content closer to the hero. */
+  .site-shell > .about {
+    padding-top: 22px;
+    padding-bottom: 30px;
+    gap: 12px;
+  }
+  .about::before {
+    top: 8px;
+  }
+  .about .owner-copy {
+    margin-top: -2px;
+  }
+
+  /* Fluid mobile navigation instead of fixed phone sizes. */
+  :root {
+    --header-h: clamp(54px, 14vw, 64px);
+  }
+  .header .navbar {
+    min-height: var(--header-h);
+    height: var(--header-h);
+    padding-left: clamp(14px, 5.8vw, 28px);
+    padding-right: clamp(10px, 4vw, 18px);
+    gap: clamp(0px, 1vw, 4px);
+  }
+  .header .brand {
+    font-size: clamp(19px, 6.1vw, 24px);
+    letter-spacing: clamp(-1.2px, -0.28vw, -.7px);
+    min-width: 0;
+    white-space: nowrap;
+  }
+  .header .header-tools {
+    flex: 0 0 auto;
+    gap: clamp(0px, .8vw, 4px);
+  }
+  .header .nav-book {
+    width: clamp(36px, 10.5vw, 44px);
+    height: clamp(36px, 10.5vw, 44px);
+  }
+  .header .nav-book .icon {
+    width: clamp(18px, 5.4vw, 22px);
+    height: clamp(18px, 5.4vw, 22px);
+    flex-basis: clamp(18px, 5.4vw, 22px);
+  }
+  .header .menu-toggle {
+    width: clamp(36px, 10.5vw, 44px);
+    height: clamp(36px, 10.5vw, 44px);
+    padding: 0;
+  }
+  .header .menu-toggle .icon {
+    width: clamp(19px, 5.8vw, 24px);
+    height: clamp(19px, 5.8vw, 24px);
+    flex-basis: clamp(19px, 5.8vw, 24px);
+  }
+  .header .main-nav {
+    top: calc(100% + clamp(4px, 1.5vw, 8px));
+    right: clamp(8px, 3vw, 12px);
+    left: clamp(8px, 3vw, 12px);
+    max-height: calc(100dvh - var(--header-h) - 18px);
+    padding: clamp(7px, 2.4vw, 10px);
+    border-radius: clamp(15px, 4vw, 20px);
+  }
+  .header .main-nav > a {
+    padding: clamp(10px, 3.2vw, 14px) clamp(12px, 4vw, 16px);
+    font-size: clamp(14px, 4.2vw, 16px);
+  }
+  .header .mobile-nav-actions {
+    gap: clamp(6px, 2vw, 8px);
+    padding-top: clamp(9px, 2.8vw, 12px);
+  }
+}
