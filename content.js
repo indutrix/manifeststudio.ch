@@ -256,13 +256,14 @@ if (hero && siteHeader) {
         : 0;
     // Mobile has a shorter visual story: start reveals earlier and finish before the photo leaves.
     const isMobileHero = window.matchMedia('(max-width: 760px)').matches;
-    const progress = isMobileHero ? Math.min(1, rawProgress * 1.42 + 0.035) : rawProgress;
+    const progress = isMobileHero ? Math.min(1, rawProgress * 2.15 + 0.10) : rawProgress;
     if (overlayHeader) {
       const photoGone = photoFrame.getBoundingClientRect().bottom <= headerHeight;
       const textsVisible = heroReducedMotion.matches
         ? window.scrollY > 8
         : progress >= textStart;
-      siteHeader.classList.toggle('is-solid', photoGone || textsVisible);
+      const mobileSolid = isMobileHero ? rawProgress > 0.13 : textsVisible;
+      siteHeader.classList.toggle('is-solid', photoGone || mobileSolid);
     }
     if (heroReducedMotion.matches) return;
     photo.style.transform = isMobileHero
