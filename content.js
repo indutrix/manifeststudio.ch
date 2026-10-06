@@ -256,7 +256,7 @@ if (hero && siteHeader) {
         : 0;
     // Mobile has a shorter visual story: start reveals earlier and finish before the photo leaves.
     const isMobileHero = window.matchMedia('(max-width: 760px)').matches;
-    const progress = isMobileHero ? Math.min(1, rawProgress * 2.15 + 0.10) : rawProgress;
+    const progress = isMobileHero ? Math.min(1, rawProgress * 2.35) : rawProgress;
     if (overlayHeader) {
       const photoGone = photoFrame.getBoundingClientRect().bottom <= headerHeight;
       const textsVisible = heroReducedMotion.matches

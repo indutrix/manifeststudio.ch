@@ -2874,3 +2874,52 @@ main > section.section,
   .about .owner-copy .eyebrow { margin-top: 0; }
   .site-shell > .benefits { padding-top: 42px; }
 }
+
+/* MOBILE hero scroll story: start at zero, show hint, reveal FX progressively. */
+@media (max-width: 760px) {
+  .scroll-hint {
+    display: flex !important;
+    right: 18px;
+    bottom: 18px;
+    left: auto;
+    gap: 8px;
+    color: #7b2f52;
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.65);
+  }
+  .scroll-line {
+    width: 42px;
+  }
+  .hero.is-started .scroll-hint {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+  }
+
+  /* Mobile gets its own full hero constellation, revealed by data-reveal. */
+  .hero-fx .d-only {
+    display: block !important;
+  }
+  .hero-fx .fx {
+    opacity: 1;
+  }
+  .hero-fx .fx img {
+    --o: .88;
+  }
+  .hero-fx .fx:nth-child(6)  { --mx:70%; --my:38%; --mw:42; }
+  .hero-fx .fx:nth-child(7)  { --mx:16%; --my:52%; --mw:42; }
+  .hero-fx .fx:nth-child(9)  { --mx:58%; --my:63%; --mw:54; }
+  .hero-fx .fx:nth-child(10) { --mx:18%; --my:72%; --mw:32; }
+  .hero-fx .fx:nth-child(11) { --mx:76%; --my:79%; --mw:38; }
+  .hero-fx .fx:nth-child(13) { --mx:64%; --my:17%; --mw:28; }
+  .hero-fx .fx:nth-child(14) { --mx:82%; --my:33%; --mw:34; }
+  .hero-fx .fx:nth-child(15) { --mx:70%; --my:68%; --mw:30; }
+  .hero-fx .fx:nth-child(16) { --mx:24%; --my:84%; --mw:28; }
+
+  /* Keep the first copy item hidden until actual scroll progress crosses its threshold. */
+  .hero-copy .eyebrow.reveal:not(.is-visible) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
