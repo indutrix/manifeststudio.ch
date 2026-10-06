@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol
+    id="instagram"
+    viewBox="0 0 24 24"
+  >
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="5"
+    />
+    <circle
+      cx="12"
+      cy="12"
+      r="4"
+    />
+    <circle
+      cx="17.5"
+      cy="6.5"
+      r=".7"
+      fill="currentColor"
+      stroke="none"
+    />
+  </symbol>
+  <symbol
+    id="whatsapp"
+    viewBox="0 0 24 24"
+  ><path d="M20.5 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.3-4.5A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.3 7.5c-.4 0-.9.5-.9 1.3 0 3.7 3.1 6.8 6.8 6.8.8 0 1.3-.5 1.3-.9v-1.4l-2-.8-.9 1a7.5 7.5 0 0 1-3.1-3.1l1-.9-.8-2Z"/></symbol>
+  <symbol
+    id="phone"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="m7 3 3 4-2 2a15 15 0 0 0 7 7l2-2 4 3-1 3c-.5 1-2 1-3 1A20 20 0 0 1 3 7c0-1 0-2 1-3Z"
+    />
+  </symbol>
+  <symbol
+    id="message"
+    viewBox="0 0 24 24"
+  >
+    <path d="M20 15a3 3 0 0 1-3 3H9l-5 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3Z" />
+    <path d="M8 8h8M8 12h5" />
+  </symbol>
+  <symbol
+    id="calendar"
+    viewBox="0 0 24 24"
+  >
+    <rect
+      x="3"
+      y="5"
+      width="18"
+      height="16"
+      rx="3"
+    />
+    <path d="M7 3v4m10-4v4M3 10h18m-14 5h3m4 0h3m-10 3h3" />
+  </symbol>
+  <symbol
+    id="pin"
+    viewBox="0 0 24 24"
+  >
+    <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" />
+    <circle
+      cx="12"
+      cy="10"
+      r="2.5"
+    />
+  </symbol>
+  <symbol
+    id="list"
+    viewBox="0 0 24 24"
+  >
+    <rect
+      x="4"
+      y="3"
+      width="16"
+      height="18"
+      rx="3"
+    />
+    <path d="M10 8h6m-6 4h6m-6 4h6M7 8h.01M7 12h.01M7 16h.01" />
+  </symbol>
+  <symbol
+    id="plus"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      cx="12"
+      cy="12"
+      r="9"
+    />
+    <path d="M12 8v8m-4-4h8" />
+  </symbol>
+  <symbol
+    id="heart"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M20.5 5.5a5 5 0 0 0-7 0L12 7l-1.5-1.5a5 5 0 0 0-7 7L12 21l8.5-8.5a5 5 0 0 0 0-7Z"
+    />
+  </symbol>
+  <symbol
+    id="sparkles"
+    viewBox="0 0 24 24"
+  >
+    <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5ZM20 2v4m-2-2h4" />
+  </symbol>
+  <symbol
+    id="shield"
+    viewBox="0 0 24 24"
+  >
+    <path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z" />
+    <path d="m8 12 3 3 5-6" />
+  </symbol>
+  <symbol
+    id="leaf"
+    viewBox="0 0 24 24"
+  >
+    <path d="M20 3c0 10-1 16-8 16a7 7 0 0 1-7-7C5 5 13 5 20 3ZM4 21 15 10" />
+  </symbol>
+  <symbol
+    id="nail"
+    viewBox="0 0 24 24"
+  >
+    <path d="M7 20V8a5 5 0 0 1 10 0v12Z" />
+    <path d="M9 6h6v7H9Z" />
+  </symbol>
+  <symbol
+    id="layers"
+    viewBox="0 0 24 24"
+  >
+    <path d="m3 8 9-5 9 5-9 5Zm0 5 9 5 9-5M3 18l9 5 9-5" />
+  </symbol>
+  <symbol
+    id="length"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M7 21V7a5 5 0 0 1 10 0v14ZM10 5h4v7h-4M21 4v15m-2-13 2-2 2 2m-4 11 2 2 2-2"
+    />
+  </symbol>
+  <symbol
+    id="brush"
+    viewBox="0 0 24 24"
+  >
+    <path d="m14 4 6 6-8 8-6-6ZM14 4l2-2 6 6-2 2M6 12c-4 0-4 4-4 8 4 0 8 0 8-4" />
+  </symbol>
+  <symbol
+    id="clock"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      cx="12"
+      cy="12"
+      r="9"
+    />
+    <path d="M12 7v5l3 2" />
+  </symbol>
+  <symbol
+    id="close"
+    viewBox="0 0 24 24"
+  >
+    <path d="m6 6 12 12M6 18 18 6" />
+  </symbol>
+  <symbol
+    id="menu"
+    viewBox="0 0 24 24"
+  >
+    <path d="M4 6h16M4 12h16M4 18h16" />
+  </symbol>
+  <symbol
+    id="home"
+    viewBox="0 0 24 24"
+  >
+    <path d="m3 10 9-7 9 7v11h-6v-8H9v8H3Z" />
+  </symbol>
+</svg>

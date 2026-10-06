@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Manifest Studio — Nails</title>
+    <meta
+      name="description"
+      content="Maniküre und Nagelpflege bei Karolina in Wattwil."
+    />
+    <link
+      rel="icon"
+      href="favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+    <script
+      src="translations.js"
+      defer
+    ></script>
+    <script
+      src="studio-config.js"
+      defer
+    ></script>
+    <script
+      src="content.js"
+      defer
+    ></script>
+  </head>
+  <body data-page="prices">
+    <a
+      class="skip"
+      href="#main"
+      data-t="skip"
+    ></a>
+    <header class="header">
+      <div class="navbar">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Manifest Studio"
+          >manifest studio</a
+        >
+        <nav
+          id="main-nav"
+          class="main-nav"
+          aria-label="Navigation"
+        >
+          <a
+            href="index.html#home"
+            data-t="navHome"
+          ></a
+          ><a
+            href="index.html#about"
+            data-t="navAbout"
+          ></a
+          ><a
+            href="index.html#services"
+            data-t="navServices"
+          ></a
+          ><a
+            href="index.html#gallery"
+            data-t="navGallery"
+          ></a
+          ><a
+            href="index.html#training"
+            data-t="navTraining"
+          ></a
+          ><a
+            href="index.html#contact"
+            data-t="navContact"
+          ></a>
+          <div class="mobile-nav-actions">
+            <a
+              class="action"
+              href="https://www.instagram.com/manifest.studio.ch/"
+              target="_blank"
+              rel="noopener"
+              ><svg
+                class="icon"
+                aria-hidden="true"
+              >
+                <use href="icons.svg#instagram"></use></svg
+              ><span data-t="followInstagram"></span></a
+            ><a
+              class="action"
+              href="index.html#contact"
+              ><svg
+                class="icon"
+                aria-hidden="true"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="book"></span
+            ></a>
+          </div>
+        </nav>
+        <div class="header-tools">
+          <div class="language-picker">
+            <button
+              class="language-toggle icon-button"
+              type="button"
+              aria-label="Language"
+              aria-expanded="false"
+              aria-controls="language-options"
+            >
+              DE
+            </button>
+            <div
+              class="language-options"
+              id="language-options"
+              hidden
+            >
+              <button
+                type="button"
+                data-lang="de"
+                lang="de"
+                aria-pressed="false"
+              >
+                Deutsch</button
+              ><button
+                type="button"
+                data-lang="pl"
+                lang="pl"
+                aria-pressed="false"
+              >
+                Polski</button
+              ><button
+                type="button"
+                data-lang="en"
+                lang="en"
+                aria-pressed="false"
+              >
+                English</button
+              ><button
+                type="button"
+                data-lang="ru"
+                lang="ru"
+                aria-pressed="false"
+              >
+                Русский</button
+              ><button
+                type="button"
+                data-lang="uk"
+                lang="uk"
+                aria-pressed="false"
+              >
+                Українська
+              </button>
+            </div>
+          </div>
+          <a
+            class="action follow-header"
+            href="https://www.instagram.com/manifest.studio.ch/"
+            target="_blank"
+            rel="noopener"
+            data-label="followInstagram"
+            ><svg
+              class="icon"
+              aria-hidden="true"
+            >
+              <use href="icons.svg#instagram"></use></svg
+            ><span data-t="followInstagram"></span></a
+          ><a
+            class="action nav-book"
+            href="index.html#contact"
+            data-label="book"
+            ><svg
+              class="icon"
+              aria-hidden="true"
+            >
+              <use href="icons.svg#calendar"></use></svg
+            ><span data-t="book"></span></a
+          ><button
+            class="menu-toggle icon-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="main-nav"
+            data-label="menu"
+          >
+            <svg
+              class="icon"
+              aria-hidden="true"
+            >
+              <use href="icons.svg#menu"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <section class="section price-page">
+        <div class="section-heading">
+          <p
+            class="eyebrow"
+            data-t="servicesLabel"
+          ></p>
+          <h1 data-t="servicesTitle"></h1>
+          <p data-t="pricesIntro"></p>
+        </div>
+        <div class="service-grid detailed">
+          <article
+            class="service-card featured"
+            id="classic"
+          >
+            <div class="card-heading">
+              <span class="icon-badge"
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#nail"></use></svg
+              ></span>
+              <h3 data-t="classicName"></h3>
+            </div>
+            <p
+              class="detail-label"
+              data-t="included"
+            ></p>
+            <p
+              class="service-description"
+              data-t="classicDesc"
+            ></p>
+            <div class="service-meta">
+              <span
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#clock"></use></svg
+                >45 min</span
+              ><strong>40 CHF</strong>
+            </div>
+            <button
+              type="button"
+              class="action card-action"
+              data-book
+            >
+              <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="serviceBook"></span>
+            </button>
+          </article>
+          <article
+            class="service-card"
+            id="lamination"
+          >
+            <div class="card-heading">
+              <span class="icon-badge"
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#leaf"></use></svg
+              ></span>
+              <h3 data-t="laminationName"></h3>
+            </div>
+            <p
+              class="detail-label"
+              data-t="included"
+            ></p>
+            <p
+              class="service-description"
+              data-t="laminationDesc"
+            ></p>
+            <div class="packages">
+              <h4 data-t="packages"></h4>
+              <p><span data-t="pack3"></span><strong>135 CHF</strong></p>
+              <p><span data-t="pack5"></span><strong>220 CHF</strong></p>
+            </div>
+            <div class="service-meta">
+              <span
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#clock"></use></svg
+                >45 min</span
+              ><strong>50 CHF</strong>
+            </div>
+            <button
+              type="button"
+              class="action card-action"
+              data-book
+            >
+              <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="serviceBook"></span>
+            </button>
+          </article>
+          <article
+            class="service-card"
+            id="gel"
+          >
+            <div class="card-heading">
+              <span class="icon-badge"
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#layers"></use></svg
+              ></span>
+              <h3 data-t="gelName"></h3>
+            </div>
+            <p
+              class="detail-label"
+              data-t="included"
+            ></p>
+            <p
+              class="service-description"
+              data-t="gelDesc"
+            ></p>
+            <div class="service-meta">
+              <span
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#clock"></use></svg
+                >75 min</span
+              ><strong>75 CHF</strong>
+            </div>
+            <button
+              type="button"
+              class="action card-action"
+              data-book
+            >
+              <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="serviceBook"></span>
+            </button>
+          </article>
+          <article
+            class="service-card"
+            id="extensions"
+          >
+            <div class="card-heading">
+              <span class="icon-badge"
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#length"></use></svg
+              ></span>
+              <h3 data-t="extensionsName"></h3>
+            </div>
+            <p
+              class="detail-label"
+              data-t="included"
+            ></p>
+            <p
+              class="service-description"
+              data-t="extensionsDesc"
+            ></p>
+            <div class="service-meta">
+              <span
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#clock"></use></svg
+                >105 min</span
+              ><strong>110 CHF</strong>
+            </div>
+            <button
+              type="button"
+              class="action card-action"
+              data-book
+            >
+              <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="serviceBook"></span>
+            </button>
+          </article>
+          <article
+            class="service-card"
+            id="hybrid"
+          >
+            <div class="card-heading">
+              <span class="icon-badge"
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#brush"></use></svg
+              ></span>
+              <h3 data-t="hybridName"></h3>
+            </div>
+            <p
+              class="detail-label"
+              data-t="included"
+            ></p>
+            <p
+              class="service-description"
+              data-t="hybridDesc"
+            ></p>
+            <div class="service-meta">
+              <span
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#clock"></use></svg
+                >75 min</span
+              ><strong>60 CHF</strong>
+            </div>
+            <button
+              type="button"
+              class="action card-action"
+              data-book
+            >
+              <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="serviceBook"></span>
+            </button>
+          </article>
+          <article
+            class="service-card"
+            id="art"
+          >
+            <div class="card-heading">
+              <span class="icon-badge"
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#sparkles"></use></svg
+              ></span>
+              <h3 data-t="artName"></h3>
+            </div>
+            <p
+              class="detail-label"
+              data-t="included"
+            ></p>
+            <p
+              class="service-description"
+              data-t="artDesc"
+            ></p>
+            <div class="service-meta">
+              <span
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#clock"></use></svg
+                >10–15 min</span
+              ><strong>10 CHF</strong>
+            </div>
+            <button
+              type="button"
+              class="action card-action"
+              data-book
+            >
+              <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="serviceBook"></span>
+            </button>
+          </article>
+          <article
+            class="service-card"
+            id="removal"
+          >
+            <div class="card-heading">
+              <span class="icon-badge"
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#shield"></use></svg
+              ></span>
+              <h3 data-t="removalName"></h3>
+            </div>
+            <p
+              class="detail-label"
+              data-t="included"
+            ></p>
+            <p
+              class="service-description"
+              data-t="removalDesc"
+            ></p>
+            <div class="service-meta">
+              <span
+                ><svg
+                  class="icon"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <use href="icons.svg#clock"></use></svg
+                >20 min</span
+              ><strong>15 CHF</strong>
+            </div>
+            <button
+              type="button"
+              class="action card-action"
+              data-book
+            >
+              <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#calendar"></use></svg
+              ><span data-t="serviceBook"></span>
+            </button>
+          </article>
+        </div>
+        <div class="section-action">
+          <a
+            href="index.html"
+            class="action"
+            ><svg
+              class="icon"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="icons.svg#home"></use></svg
+            ><span data-t="backHome"></span
+          ></a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand-block">
+          <a
+            class="brand"
+            href="index.html"
+            >manifest studio</a
+          >
+          <p data-t="footerNote"></p>
+          <p class="footer-address">
+            <svg
+              class="icon"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="icons.svg#pin"></use></svg
+            >Wilerstrasse, 9630 Wattwil
+          </p>
+        </div>
+        <div>
+          <h2 data-t="footerNav"></h2>
+          <nav
+            class="footer-nav"
+            aria-label="Footer"
+          >
+            <a
+              href="index.html#home"
+              data-t="navHome"
+            ></a
+            ><a
+              href="index.html#about"
+              data-t="navAbout"
+            ></a
+            ><a
+              href="index.html#services"
+              data-t="navServices"
+            ></a
+            ><a
+              href="index.html#gallery"
+              data-t="navGallery"
+            ></a
+            ><a
+              href="index.html#training"
+              data-t="navTraining"
+            ></a
+            ><a
+              href="index.html#reviews"
+              data-t="reviewsTitle"
+            ></a
+            ><a
+              href="index.html#contact"
+              data-t="navContact"
+            ></a>
+          </nav>
+        </div>
+        <div class="footer-connect">
+          <h2 data-t="footerSocial"></h2>
+          <span class="action phone-display"
+            ><svg
+              class="icon"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="icons.svg#phone"></use></svg
+            ><span>+41 76 213 89 32</span></span
+          >
+          <div class="social-links">
+            <a
+              class="icon-button"
+              href="https://wa.me/41762138932"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+              ><svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#whatsapp"></use></svg></a
+            ><a
+              class="icon-button"
+              href="https://www.instagram.com/manifest.studio.ch/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              ><svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="icons.svg#instagram"></use></svg
+            ></a>
+          </div>
+          <button
+            type="button"
+            class="action"
+            data-book
+          >
+            <svg
+              class="icon"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="icons.svg#calendar"></use></svg
+            ><span data-t="book"></span>
+          </button>
+        </div>
+      </div>
+      <div class="footer-bottom">© <span id="year"></span> Manifest Studio</div>
+    </footer>
+    <dialog
+      class="booking-dialog"
+      id="booking-dialog"
+      aria-labelledby="booking-title"
+      aria-describedby="booking-description"
+    >
+      <button
+        class="icon-button dialog-close"
+        type="button"
+        data-close
+        data-label="close"
+      >
+        <svg
+          class="icon"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <use href="icons.svg#close"></use>
+        </svg></button
+      ><span class="icon-badge"
+        ><svg
+          class="icon"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <use href="icons.svg#calendar"></use></svg
+      ></span>
+      <h2
+        id="booking-title"
+        data-t="dialogTitle"
+      ></h2>
+      <p
+        id="booking-description"
+        data-t="dialogText"
+      ></p>
+      <div class="booking-options">
+        <a
+          href="https://wa.me/41762138932"
+          class="action"
+          target="_blank"
+          rel="noopener"
+          ><svg
+            class="icon"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <use href="icons.svg#whatsapp"></use></svg
+          ><span data-t="whatsapp"></span></a
+        ><a
+          href="sms:+41762138932"
+          class="action"
+          ><svg
+            class="icon"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <use href="icons.svg#message"></use></svg
+          ><span data-t="sms"></span></a
+        ><a
+          href="tel:+41762138932"
+          class="action"
+          ><svg
+            class="icon"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <use href="icons.svg#phone"></use></svg
+          ><span data-t="call"></span
+        ></a>
+      </div>
+    </dialog>
+  </body>
+</html>
