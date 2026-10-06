@@ -2139,3 +2139,47 @@ main > section.section,
     width: calc(var(--aw) * .88);
   }
 }
+
+/* Warmer hero shading: dark rose/burgundy instead of black. */
+@media (min-width: 761px) {
+  .hero-photo::after {
+    background:
+      radial-gradient(ellipse 60% 90% at 82% 52%,
+        rgba(106, 43, 73, .46) 0%,
+        rgba(106, 43, 73, .34) 34%,
+        rgba(106, 43, 73, .18) 58%,
+        rgba(106, 43, 73, .07) 76%,
+        transparent 100%),
+      linear-gradient(180deg,
+        rgba(92, 35, 62, .12) 0%,
+        transparent 24%,
+        transparent 76%,
+        rgba(92, 35, 62, .08) 100%);
+  }
+  .hero-copy::before {
+    background: radial-gradient(ellipse at 72% 50%,
+      rgba(111, 42, 77, .38) 0%,
+      rgba(111, 42, 77, .24) 42%,
+      rgba(111, 42, 77, .09) 68%,
+      transparent 86%);
+  }
+}
+@media (max-width: 760px) {
+  .hero-photo::after {
+    background: linear-gradient(180deg,
+      rgba(104, 39, 72, .10) 0%,
+      transparent 28%,
+      transparent 58%,
+      rgba(104, 39, 72, .14) 82%,
+      rgba(104, 39, 72, .22) 100%);
+  }
+  .hero-copy {
+    background: linear-gradient(180deg,
+      transparent 50%,
+      rgba(104, 39, 72, .06) 66%,
+      rgba(104, 39, 72, .18) 100%);
+  }
+  .hero-copy::before {
+    background: rgba(104, 39, 72, .24);
+  }
+}
