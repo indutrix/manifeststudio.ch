@@ -250,10 +250,13 @@ if (hero && siteHeader) {
     const headerHeight = siteHeader.offsetHeight;
     document.documentElement.style.setProperty('--header-h', `${headerHeight}px`);
     const distance = hero.offsetHeight - sticky.offsetHeight;
-    const progress =
+    const rawProgress =
       distance > 0
         ? Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / distance))
         : 0;
+    // Mobile has a shorter visual story: start reveals earlier and finish before the photo leaves.
+    const isMobileHero = window.matchMedia('(max-width: 760px)').matches;
+    const progress = isMobileHero ? Math.min(1, rawProgress * 1.42 + 0.035) : rawProgress;
     if (overlayHeader) {
       const photoGone = photoFrame.getBoundingClientRect().bottom <= headerHeight;
       const textsVisible = heroReducedMotion.matches
@@ -262,7 +265,9 @@ if (hero && siteHeader) {
       siteHeader.classList.toggle('is-solid', photoGone || textsVisible);
     }
     if (heroReducedMotion.matches) return;
-    photo.style.transform = `translateY(${(0.5 - progress) * 16}px) scale(${1.06 - progress * 0.03})`;
+    photo.style.transform = isMobileHero
+      ? `scale(${1.025 - progress * 0.012})`
+      : `translateY(${(0.5 - progress) * 16}px) scale(${1.06 - progress * 0.03})`;
     hero.classList.toggle('is-started', progress > 0.08);
     items.forEach((item) => {
       item.classList.toggle('is-visible', progress >= Number(item.dataset.reveal));
