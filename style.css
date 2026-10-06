@@ -1120,6 +1120,9 @@ body:has(.gallery-dialog[open]) {
     height: 360vh;
   }
   .hero-sticky {
+    height: 72svh;
+    min-height: 560px;
+    max-height: 680px;
     padding: 0 16px 20px;
   }
   .hero-photo,
