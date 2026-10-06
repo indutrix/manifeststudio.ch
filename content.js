@@ -114,13 +114,19 @@ dialog.addEventListener('close', () => bookingTrigger?.focus());
 // Compact navigation on small screens.
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#main-nav');
+function setMenuState(open) {
+  navigation.classList.toggle('is-open', open);
+  document.querySelector('.header').classList.toggle('menu-open', open);
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton
+    .querySelector('use')
+    .setAttribute('href', open ? 'icons.svg#close' : 'icons.svg#menu');
+}
 function closeMenu() {
-  navigation.classList.remove('is-open');
-  menuButton.setAttribute('aria-expanded', 'false');
+  setMenuState(false);
 }
 menuButton.addEventListener('click', () => {
-  const open = navigation.classList.toggle('is-open');
-  menuButton.setAttribute('aria-expanded', String(open));
+  setMenuState(!navigation.classList.contains('is-open'));
 });
 navigation
   .querySelectorAll('a')
@@ -220,26 +226,38 @@ if (galleryDialog) {
 }
 
 // Scroll hero: the photo stays pinned and the texts appear one by one.
+// The header is transparent over the photo and turns frosted once the photo has scrolled away.
 const hero = document.querySelector('.hero');
 const siteHeader = document.querySelector('.header');
 const heroReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (hero && siteHeader) {
   const sticky = hero.querySelector('.hero-sticky');
-  const photo = hero.querySelector('.hero-photo img');
+  const photoFrame = hero.querySelector('.hero-photo');
+  const photo = photoFrame.querySelector('img');
   const items = [...hero.querySelectorAll('[data-reveal]')];
   const fill = hero.querySelector('.progress-fill');
+  const overlayHeader = siteHeader.classList.contains('header-overlay');
+  // The header gets its background as soon as the first text starts to appear.
+  const textStart = Math.min(...items.map((item) => Number(item.dataset.reveal))) - 0.01;
   let waiting = false;
 
   function updateHero() {
     waiting = false;
     const headerHeight = siteHeader.offsetHeight;
     document.documentElement.style.setProperty('--header-h', `${headerHeight}px`);
-    if (heroReducedMotion.matches) return;
     const distance = hero.offsetHeight - sticky.offsetHeight;
-    const progress = Math.min(
-      1,
-      Math.max(0, (headerHeight - hero.getBoundingClientRect().top) / distance),
-    );
+    const progress =
+      distance > 0
+        ? Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / distance))
+        : 0;
+    if (overlayHeader) {
+      const photoGone = photoFrame.getBoundingClientRect().bottom <= headerHeight;
+      const textsVisible = heroReducedMotion.matches
+        ? window.scrollY > 8
+        : progress >= textStart;
+      siteHeader.classList.toggle('is-solid', photoGone || textsVisible);
+    }
+    if (heroReducedMotion.matches) return;
     photo.style.transform = `translateY(${(0.5 - progress) * 16}px) scale(${1.06 - progress * 0.03})`;
     fill.style.transform = `scaleY(${progress})`;
     hero.classList.toggle('is-started', progress > 0.08);
