@@ -584,6 +584,7 @@ p {
   margin-top: 45px;
   font-size: 11px;
   color: var(--muted);
+  float:left;
 }
 /* Booking dialog */
 .booking-dialog {
