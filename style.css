@@ -579,12 +579,12 @@ p {
   font-size: 11px;
   color: var(--muted);
 }
-.author{
+.author {
   padding-top: 22px;
   margin-top: 45px;
   font-size: 11px;
   color: var(--muted);
-  float:left;
+  float:right;
 }
 /* Booking dialog */
 .booking-dialog {
