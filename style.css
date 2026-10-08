@@ -963,7 +963,7 @@ body:has(.gallery-dialog[open]) {
   right: 22px;
   width: 18px;
   height: 20px;
-  background: url('images/fx/fx-01.png') center / contain no-repeat;
+  background: url('images/fx/fx-01.webp') center / contain no-repeat;
   content: '';
 }
 .hero-copy {
@@ -2775,7 +2775,7 @@ main > section.section,
   right: 24px;
   width: 24px;
   height: 26px;
-  background: url('images/fx/fx-01.png') center / contain no-repeat;
+  background: url('images/fx/fx-01.webp') center / contain no-repeat;
   content: '';
   pointer-events: none;
   animation: cta-sparkle 4.6s ease-in-out infinite;
@@ -2831,7 +2831,7 @@ main > section.section,
   right: 22px;
   width: 18px;
   height: 20px;
-  background: url('images/fx/fx-01.png') center / contain no-repeat;
+  background: url('images/fx/fx-01.webp') center / contain no-repeat;
   content: '';
   pointer-events: none;
   animation: none !important;

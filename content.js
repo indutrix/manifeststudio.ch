@@ -61,7 +61,11 @@ if (reviews) {
     link.target = '_blank';
     link.rel = 'noopener';
     const image = document.createElement('img');
-    image.src = review.image;
+    image.src = review.thumb || review.image;
+    if (review.width && review.height) {
+      image.width = review.width;
+      image.height = review.height;
+    }
     image.dataset.review = index;
     image.loading = 'lazy';
     link.append(image);
@@ -189,7 +193,7 @@ if (galleryDialog) {
   let photoTrigger;
   function showPhoto() {
     const full = galleryDialog.querySelector('.gallery-full');
-    full.src = photos[photoIndex].src;
+    full.src = photos[photoIndex].dataset.full || photos[photoIndex].src;
     full.alt = photos[photoIndex].alt;
     galleryDialog.querySelector('.gallery-count').textContent =
       `${photoIndex + 1} / ${photos.length}`;
