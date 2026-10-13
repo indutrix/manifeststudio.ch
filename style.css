@@ -3358,3 +3358,53 @@ main > section.section,
 .fx.fx-paused img {
   animation-play-state: paused !important;
 }
+
+/* Hero text: more room between the lines and between the blocks (headline, motto, description, place, button). */
+@media (min-width: 761px) {
+  .hero-copy .eyebrow {
+    margin-bottom: 26px;
+  }
+  .hero-copy h1 {
+    line-height: 1.06;
+  }
+  .hero-copy h1 em {
+    margin-top: 24px;
+    line-height: 1.14;
+  }
+  .hero-copy .hero-description {
+    margin-top: 30px;
+    font-size: clamp(14px, 1.05vw, 16px);
+    line-height: 1.65;
+  }
+  .hero-copy .location-tag {
+    margin-top: 16px;
+  }
+  .hero-copy .action {
+    margin-top: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .hero-copy .eyebrow {
+    margin-bottom: 14px;
+    font-size: 9px;
+  }
+  .hero-copy h1 {
+    line-height: 1.06;
+  }
+  .hero-copy h1 em {
+    margin-top: 14px;
+    line-height: 1.15;
+  }
+  .hero-copy .hero-description {
+    max-width: 84%; /* leaves room for the round buttons on the right */
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .hero-copy .location-tag {
+    margin-top: 12px;
+  }
+  .hero .action {
+    margin-top: 20px;
+  }
+}
