@@ -792,6 +792,12 @@ p {
 .footer .phone-link:hover {
   color: var(--pink-dark);
 }
+.footer-email a {
+  color: inherit;
+}
+.footer-email a:hover {
+  color: var(--pink-dark);
+}
 .footer-grid > :not(:first-child) {
   border-left: 1px solid #c596ad80;
   padding-left: 30px;
