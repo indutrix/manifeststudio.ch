@@ -3359,52 +3359,53 @@ main > section.section,
   animation-play-state: paused !important;
 }
 
-/* Hero text: more room between the lines and between the blocks (headline, motto, description, place, button). */
+/* Hero text: more room between the lines and between the blocks (headline, motto, description, place, button).
+   Gaps and the description size follow the window height (vh/svh), so on a short window they shrink and everything still fits. */
 @media (min-width: 761px) {
   .hero-copy .eyebrow {
-    margin-bottom: 26px;
+    margin-bottom: clamp(14px, 3vh, 28px);
   }
   .hero-copy h1 {
     line-height: 1.06;
   }
   .hero-copy h1 em {
-    margin-top: 24px;
+    margin-top: clamp(10px, 2.6vh, 26px);
     line-height: 1.14;
   }
   .hero-copy .hero-description {
-    margin-top: 30px;
-    font-size: clamp(14px, 1.05vw, 16px);
+    margin-top: clamp(12px, 3.2vh, 32px);
+    font-size: clamp(13px, min(1.05vw, 1.9vh), 16px);
     line-height: 1.65;
   }
   .hero-copy .location-tag {
-    margin-top: 16px;
+    margin-top: clamp(8px, 1.8vh, 16px);
   }
   .hero-copy .action {
-    margin-top: 32px;
+    margin-top: clamp(12px, 3.3vh, 34px);
   }
 }
 @media (max-width: 760px) {
   .hero-copy .eyebrow {
-    margin-bottom: 14px;
+    margin-bottom: clamp(8px, 1.7svh, 14px);
     font-size: 9px;
   }
   .hero-copy h1 {
     line-height: 1.06;
   }
   .hero-copy h1 em {
-    margin-top: 14px;
+    margin-top: clamp(8px, 1.7svh, 14px);
     line-height: 1.15;
   }
   .hero-copy .hero-description {
     max-width: 84%; /* leaves room for the round buttons on the right */
-    margin-top: 18px;
+    margin-top: clamp(10px, 2.1svh, 18px);
     font-size: 14px;
     line-height: 1.55;
   }
   .hero-copy .location-tag {
-    margin-top: 12px;
+    margin-top: clamp(8px, 1.4svh, 12px);
   }
   .hero .action {
-    margin-top: 20px;
+    margin-top: clamp(12px, 2.4svh, 20px);
   }
 }
