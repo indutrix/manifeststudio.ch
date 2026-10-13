@@ -1825,6 +1825,94 @@ main > section.section,
   }
 }
 
+/* Chat-style email button with a dismissible speech bubble. */
+.chat-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.chat-bubble {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: min(220px, calc(100vw - 120px));
+  padding: 10px 16px;
+  border: 1px solid rgba(135, 83, 109, 0.45);
+  border-radius: 18px;
+  background: rgba(247, 239, 242, 0.96);
+  box-shadow: 0 10px 30px rgba(41, 35, 41, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: chat-bubble-in 400ms ease both;
+}
+.chat-bubble[hidden] {
+  display: none;
+}
+.chat-bubble::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid rgba(135, 83, 109, 0.45);
+  border-right: 1px solid rgba(135, 83, 109, 0.45);
+  background: rgba(247, 239, 242, 0.96);
+  transform: translateY(-50%) rotate(45deg);
+}
+.chat-bubble-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--pink-dark);
+}
+.chat-bubble-close {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid rgba(135, 83, 109, 0.45);
+  border-radius: 50%;
+  background: #fffafc;
+  color: var(--pink-dark);
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+.chat-bubble-close:hover,
+.chat-bubble-close:focus-visible {
+  background: var(--pink-dark);
+  color: #fffafc;
+}
+.chat-bubble-close svg {
+  width: 10px;
+  height: 10px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+@keyframes chat-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-bubble {
+    animation: none;
+  }
+}
+
 /* Soft, local darkening only behind the hero text, so the photo itself stays bright. */
 .hero-copy::before {
   position: absolute;

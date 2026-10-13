@@ -60,6 +60,8 @@ const translations = {
     scrollHint: 'Scrollen, um zu entdecken',
     toTop: 'Nach oben',
     callNow: 'Jetzt anrufen',
+    chatHelp: 'Wie kann ich helfen?',
+    chatLabel: 'E-Mail schreiben',
     hybridDesc:
       'Nagelhautpflege, Feilen und Formen sowie Hybridlack und Pflegebehandlung.',
     hybridName: 'Hybrid-Maniküre (Shellac)',
@@ -177,6 +179,8 @@ const translations = {
     scrollHint: 'Przewiń, aby odkryć',
     toTop: 'Do góry',
     callNow: 'Zadzwoń',
+    chatHelp: 'W czym mogę pomóc?',
+    chatLabel: 'Napisz e-mail',
     hybridDesc:
       'Opracowanie skórek, opiłowanie i nadanie kształtu, lakier hybrydowy oraz pielęgnacja.',
     hybridName: 'Manicure hybrydowy (Shellac)',
@@ -293,6 +297,8 @@ const translations = {
     scrollHint: 'Scroll to explore',
     toTop: 'Back to top',
     callNow: 'Call now',
+    chatHelp: 'How can I help?',
+    chatLabel: 'Send an email',
     hybridDesc: 'Cuticle care, filing and shaping, gel polish and a care treatment.',
     hybridName: 'Gel polish manicure (Shellac)',
     included: 'What is included',
@@ -405,6 +411,8 @@ const translations = {
     scrollHint: 'Прокрутите, чтобы узнать больше',
     toTop: 'Наверх',
     callNow: 'Позвонить',
+    chatHelp: 'Чем могу помочь?',
+    chatLabel: 'Написать на почту',
     hybridDesc:
       'Обработка кутикулы, опил и придание формы, покрытие гель-лаком и завершающий уход.',
     hybridName: 'Маникюр с гель-лаком',
@@ -520,6 +528,8 @@ const translations = {
     scrollHint: 'Прокрутіть, щоб дізнатися більше',
     toTop: 'Угору',
     callNow: 'Зателефонувати',
+    chatHelp: 'Чим можу допомогти?',
+    chatLabel: 'Написати на пошту',
     hybridDesc:
       'Обробка кутикули, обпилювання та надання форми, покриття гель-лаком і завершальний догляд.',
     hybridName: 'Манікюр із гель-лаком',

@@ -332,6 +332,23 @@ function onPageScroll() {
 toTopButton?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: motionReduced.matches ? 'auto' : 'smooth' });
 });
+
+// Chat bubble: the small x hides it, and it stays hidden for the rest of the visit.
+const chatBubble = document.querySelector('.chat-bubble');
+const chatBubbleClose = document.querySelector('.chat-bubble-close');
+try {
+  if (sessionStorage.getItem('chatBubbleClosed') === '1') chatBubble.hidden = true;
+} catch {
+  // Storage can be blocked; the bubble then simply shows again on the next page.
+}
+chatBubbleClose?.addEventListener('click', () => {
+  chatBubble.hidden = true;
+  try {
+    sessionStorage.setItem('chatBubbleClosed', '1');
+  } catch {
+    // Ignore: closing still works for the current page.
+  }
+});
 window.addEventListener('scroll', onPageScroll, { passive: true });
 window.addEventListener('resize', onPageScroll);
 onPageScroll();
