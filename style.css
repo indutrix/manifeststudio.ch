@@ -3409,3 +3409,9 @@ main > section.section,
     margin-top: clamp(12px, 2.4svh, 20px);
   }
 }
+
+/* Hero text fit: content.js sets --hero-fit (0.4-1) when the text is taller than the visible hero box. */
+@media (min-width: 761px) {
+  .hero-copy > * { zoom: var(--hero-fit, 1); }
+}
+.hero.is-measuring .hero-copy .reveal { transform: none !important; filter: none !important; transition: none !important; }

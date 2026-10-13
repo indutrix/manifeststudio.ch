@@ -44,6 +44,7 @@ function setLanguage(language) {
   const url = new URL(location.href);
   url.searchParams.set('lang', lang);
   history.replaceState(null, '', url);
+  if (window.fitHeroCopy) window.fitHeroCopy();
 }
 // Public images and embedded profiles are configured in studio-config.js.
 const owner = document.querySelector('#owner-photo');
@@ -282,9 +283,57 @@ if (hero && siteHeader) {
     }
   }
 
+  // Scales the whole text column down (never up) until it fits the visible hero box.
+  function fitHeroCopy() {
+    const copy = hero.querySelector('.hero-copy');
+    if (!copy) return;
+    if (window.matchMedia('(max-width: 760px)').matches) {
+      copy.style.removeProperty('--hero-fit');
+      return;
+    }
+    const parts = [...copy.children];
+    const first = parts[0];
+    const last = parts[parts.length - 1];
+    const boxTop = sticky.getBoundingClientRect().top;
+    const visibleHeight = Math.min(sticky.clientHeight, window.innerHeight);
+    const gap = Math.max(10, visibleHeight * 0.035);
+    const topLimit = siteHeader.offsetHeight + 6;
+    const bottomLimit = visibleHeight - gap;
+    const available = bottomLimit - topLimit;
+    // Measure without the reveal offsets, so hidden texts count with their final position.
+    hero.classList.add('is-measuring');
+    let fit = 1;
+    for (let i = 0; i < 6; i += 1) {
+      copy.style.setProperty('--hero-fit', fit.toFixed(3));
+      const top = first.getBoundingClientRect().top - boxTop;
+      const bottom = last.getBoundingClientRect().bottom - boxTop;
+      const needed = bottom - top;
+      // Fits when the block is not taller than the free space and does not leave through the bottom.
+      if (needed <= available + 0.5 && bottom <= bottomLimit + 0.5) break;
+      fit = Math.max(0.4, fit * Math.min(0.99, available / Math.max(1, needed)));
+    }
+    if (fit >= 0.999) copy.style.removeProperty('--hero-fit');
+    hero.classList.remove('is-measuring');
+  }
+
+  let fitWaiting = false;
+  function requestFit() {
+    if (fitWaiting) return;
+    fitWaiting = true;
+    requestAnimationFrame(() => {
+      fitWaiting = false;
+      fitHeroCopy();
+    });
+  }
+
+  window.fitHeroCopy = fitHeroCopy;
   window.addEventListener('scroll', requestHeroUpdate, { passive: true });
   window.addEventListener('resize', requestHeroUpdate);
+  window.addEventListener('resize', requestFit);
+  window.addEventListener('orientationchange', requestFit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(requestFit);
   updateHero();
+  fitHeroCopy();
 }
 
 // Back to top button, page progress and the decorative effects in the sections.
