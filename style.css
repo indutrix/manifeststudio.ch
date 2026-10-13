@@ -3415,3 +3415,11 @@ main > section.section,
   .hero-copy > * { zoom: var(--hero-fit, 1); }
 }
 .hero.is-measuring .hero-copy .reveal { transform: none !important; filter: none !important; transition: none !important; }
+
+/* Hero type never grows past what it is on a 1366x768 screen. */
+@media (min-width: 1181px) {
+  .hero-copy h1 { font-size: min(clamp(38px, min(4.55vw, 7.4svh), 76px), 56.83px); }
+}
+@media (min-width: 761px) {
+  .hero-copy .hero-description { font-size: clamp(13px, min(1.05vw, 1.9svh), 14.34px); }
+}
