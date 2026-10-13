@@ -2,10 +2,10 @@
 window.manifestStudio = {
   address: 'Wilerstrasse, 9630 Wattwil', // Street-level salon location: enables Google Maps and directions.
   instagram: 'manifest.studio.ch', // Public Instagram username, without @.
-  owner: { image: 'images/profilepicture.png', description: { de: '', pl: '', en: '' } },
+  owner: { image: 'images/profilepicture.webp', description: { de: '', pl: '', en: '' } },
   reviews: [
     {
-      image: 'images/opinia1.JPG',
+      image: 'images/opinia1.webp',
       alt: {
         de: 'Kundenbewertung 1 – Maja',
         pl: 'Opinia klientki 1 – Maja',
@@ -13,7 +13,7 @@ window.manifestStudio = {
       },
     },
     {
-      image: 'images/opinia2.JPG',
+      image: 'images/opinia2.webp',
       alt: {
         de: 'Kundenbewertung 2 – Esmee Thum',
         pl: 'Opinia klientki 2 – Esmee Thum',
@@ -21,7 +21,7 @@ window.manifestStudio = {
       },
     },
     {
-      image: 'images/opinia3.JPG',
+      image: 'images/opinia3.webp',
       alt: {
         de: 'Kundenbewertung 3 – Sara Evita Häberli',
         pl: 'Opinia klientki 3 – Sara Evita Häberli',
@@ -29,7 +29,7 @@ window.manifestStudio = {
       },
     },
     {
-      image: 'images/opinia4.JPG',
+      image: 'images/opinia4.webp',
       alt: {
         de: 'Kundenbewertung 4 – Elena N.',
         pl: 'Opinia klientki 4 – Elena N.',
@@ -37,7 +37,7 @@ window.manifestStudio = {
       },
     },
     {
-      image: 'images/opinia5.JPG',
+      image: 'images/opinia5.webp',
       alt: {
         de: 'Kundenbewertung 5 – Ralu Cerr',
         pl: 'Opinia klientki 5 – Ralu Cerr',
@@ -45,7 +45,7 @@ window.manifestStudio = {
       },
     },
     {
-      image: 'images/opinia6.JPG',
+      image: 'images/opinia6.webp',
       alt: {
         de: 'Kundenbewertung 6 – Nachricht zur Nagellamination',
         pl: 'Opinia klientki 6 – wiadomość o laminacji paznokci',

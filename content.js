@@ -384,6 +384,19 @@ if ('IntersectionObserver' in window && !motionReduced.matches) {
   fxElements.forEach((element) => element.classList.add('is-in'));
 }
 
+// Ornaments outside the screen pause their float animation, so the phone only animates what is visible.
+if ('IntersectionObserver' in window) {
+  const pauseObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('fx-paused', !entry.isIntersecting);
+      });
+    },
+    { rootMargin: '150px 0px' },
+  );
+  document.querySelectorAll('.fx').forEach((element) => pauseObserver.observe(element));
+}
+
 // Cards slide in row by row: everything in the same visual row appears together.
 if ('IntersectionObserver' in window && !motionReduced.matches) {
   document.querySelectorAll('[data-rows]').forEach((group) => {
